@@ -1,6 +1,30 @@
 {% extends "base.html" %}
 {% load static %}
 
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
-<h1 class="display-4">It works</h1>
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-12 col-md-4 my-auto">
+                <h1 class="display-4 logo-font text-black">Featured products</h1>
+                <div class="my-5 text-center">
+                    <h4>
+                        <a href="" class="btn btn-primary">See all products</a>
+                    </h4>
+                </div>
+            </div>
+            <div class="col-12 col-md-8" style="background-color:red">
+                lalelilolu
+            </div>
+
+        </div>
+    </div>
 {% endblock %}
