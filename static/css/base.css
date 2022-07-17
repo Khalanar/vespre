@@ -1,0 +1,54 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@200;300;500&display=swap');
+
+:root{
+    /* Declare global variables */
+    --color-base-text: #254150;
+    --color-secondary-text: #e5e5e5;
+    --color-base-background-1:  rgb(201, 201, 201);
+    --color-base-background-2:  rgb(201, 201, 201);
+    --color-base-accent-1:  #098476;
+    --color-base-accent-2:  #cae14c;
+
+    --font-body-family: Assistant, sans-serif;
+    --font-body-weight: 300;
+
+    --color-button-accent-1:  #098476;
+    --color-button-accent-2:  #cae14c;
+
+}
+
+body{
+    font-family: var(--font-body-family);
+    font-weight: var(--font-body-weight);
+}
+
+.background-gradient {
+    background: linear-gradient(180deg,
+      rgb(88 78 103) 0%,
+      rgb(64 106 119) 30%,
+      rgb(65 125 114) 80%,
+      rgb(121 147 100) 95%,
+      rgb(142 151 75) 100%);
+    padding: 4rem 0 5rem;
+}
+
+/* Bootstrap Overwrited */
+.display-1, .display-2, .display-3, .display-4{
+    color: var(--color-base-text);
+    font-family: var(--font-body-family);
+    font-weight: calc(var(--font-body-weight) + 100);
+    
+}
+
+.btn-primary{
+    background-color: var(--color-base-accent-1);
+    border-color: var(--color-base-accent-1);
+    color: var(--color-secondary-text);
+}
+
+.btn-secondary{
+    background-color: var(--color-base-accent-2);
+    border-color: var(--color-base-accent-2);
+    color: var(--color-base-text);
+}
