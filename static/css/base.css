@@ -41,7 +41,11 @@ body{
 }
 
 .header-container{
-    padding-top: 64px;
+    padding-top: 134px;
+}
+
+.header-logo{
+    height:30px;
 }
 
 .text-secondary{

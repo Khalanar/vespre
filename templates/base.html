@@ -37,11 +37,11 @@
 
     <body>
         <header class="container-fluid fixed-top">
-            <div id="topnav" class="row bg-white d-none d-lg-flex">
+            <div id="topnav" class="row bg-white ">
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                    <a href="{% url 'home' %}" class="nav-link main-logo-link">VESPRE</a>
+                    <a href="{% url 'home' %}" class="nav-link main-logo-link"><img class="header-logo" src="{{ MEDIA_URL }}/vespre_logo.png"></a>
                 </div>
-                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 d-none d-lg-block">
                     <form method="GET" action="">
                         <div class="input-group w-100">
                             <input class="form-control border border-black rounded-l" type="text" name="q" placeholder="Search...">
@@ -55,7 +55,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 d-none d-lg-block">
                     <ul class="list-inline list-unstyled text-center text-lg-right my-0">
                         <li class="list-inline-item dropdown">
                             <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
