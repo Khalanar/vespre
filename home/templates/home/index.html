@@ -11,22 +11,7 @@
 {% endblock %}
 
 {% block content %}
-    <div id="section-featured" class="background-gradient">
-        <div class="container h-100">
-            <div class="row h-100">
-                <div class="col-12 col-md-4 my-auto card p-3">
-                    <h1 class="display-4 logo-font text-black p-3">Featured products</h1>
-                    <p class="p-3">See all our discounts. Up to PLACEHOLDER in to celebrate this summer! </p>
-                    <div class="mt-4 text-center">
-                        <h4>
-                            <a href="" class="btn btn-primary">See all products</a>
-                        </h4>
-                    </div>
-                </div>
-                <div class="col-12 col-md-8" >
-                    lalelilolu
-                </div>
-            </div>
-        </div>
-    </div>
+
+    {% include 'snippets/sections/featured.html' with products=featured_products%}
+
 {% endblock %}

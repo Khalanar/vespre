@@ -18,9 +18,35 @@
 
 }
 
+html{
+    height:100%;
+}
+
 body{
     font-family: var(--font-body-family);
     font-weight: var(--font-body-weight);
+    height:calc(100vh - 164px);
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.header-container{
+    padding-top: 64px;
+}
+
+.text-secondary{
+    color: var(--color-secondary-text);
+}
+
+a {
+    color: #098476;
 }
 
 .background-gradient {
@@ -30,7 +56,12 @@ body{
       rgb(65 125 114) 80%,
       rgb(121 147 100) 95%,
       rgb(142 151 75) 100%);
-    padding: 4rem 0 5rem;
+    padding: 4rem 0 4rem;
+}
+
+/* section classes */
+.section-narrow{
+    max-width:930px;
 }
 
 /* Bootstrap Overwrited */
@@ -51,4 +82,25 @@ body{
     background-color: var(--color-base-accent-2);
     border-color: var(--color-base-accent-2);
     color: var(--color-base-text);
+}
+
+/* media queries */
+@media (min-width: 1200px){
+    .container {
+        max-width: 930px;
+    }
+}
+
+@media (min-width: 992px){
+    .fixed-top-desktop-only{
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1080;
+    }
+
+    .header-container{
+        padding-top: 64px;
+    }
 }
