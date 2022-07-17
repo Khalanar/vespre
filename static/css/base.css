@@ -104,6 +104,20 @@ a {
         !important;
 }
 
+
+
+.product-card .image-wrapper{
+    width:100%;
+    max-width: 200px;
+    aspect-ratio: 1;
+    background-color:red;
+    border-radius: var(--rounded-corder-radius);
+}
+
+.product-card .image-wrapper img{
+    overflow: hidden;
+}
+
 .rounded-r{
     0px
     var(--rounded-corder-radius)
