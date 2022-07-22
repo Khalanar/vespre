@@ -1,0 +1,58 @@
+[
+    {
+      "pk": 1,
+      "model": "products.product",
+      "fields": {
+         "sku": "vespre-stonehenge",
+         "name": "VESPRE Stonehenge Tee",
+         "description": "<p>All our<span> </span><em>Sunset Collection<span> </span></em>tees are:</p>\n<p>• 100% cotton<br>• Open-end yarn<br>• Tubular fabric<br>• Taped neck and shoulders<br>• Double seam at sleeves and bottom hem</p>\n<p>Need a perfect fit? Check our<span> </span><a href=\"https://vespre-store.com/pages/size-guide\" title=\"Open size guide in external page\" target=\"_blank\">size guide</a><span> </span>for more info!</p>",
+         "price": 19.95,
+         "compare_at_price": 19.95,
+         "has_sizes": true,
+         "image": "image.jpg",
+         "imageURL": ""
+      }
+   },
+    {
+      "pk": 2,
+      "model": "products.product",
+      "fields": {
+         "sku": "vespre-ufo-tee",
+         "name": "VESPRE UFO Tee",
+         "description": "<p>All our<span> </span><em>Sunset Collection<span> </span></em>tees are:</p>\n<p>• 100% cotton<br>• Open-end yarn<br>• Tubular fabric<br>• Taped neck and shoulders<br>• Double seam at sleeves and bottom hem</p>\n<p>Need a perfect fit? Check our<span> </span><a href=\"https://vespre-store.com/pages/size-guide\" title=\"Open size guide in external page\" target=\"_blank\">size guide</a><span> </span>for more info!</p>",
+         "price": 19.95,
+         "compare_at_price": 19.95,
+         "has_sizes": true,
+         "image": "image.jpg",
+         "imageURL": ""
+      }
+   },
+    {
+      "pk": 3,
+      "model": "products.product",
+      "fields": {
+         "sku": "vespre-seaview-tee",
+         "name": "VESPRE Seaview Tee",
+         "description": "<p>All our<span> </span><em>Sunset Collection<span> </span></em>tees are:</p>\n<p>• 100% cotton<br>• Open-end yarn<br>• Tubular fabric<br>• Taped neck and shoulders<br>• Double seam at sleeves and bottom hem</p>\n<p>Need a perfect fit? Check our<span> </span><a href=\"https://vespre-store.com/pages/size-guide\" title=\"Open size guide in external page\" target=\"_blank\">size guide</a><span> </span>for more info!</p>",
+         "price": 19.95,
+         "compare_at_price": 19.95,
+         "has_sizes": true,
+         "image": "image.jpg",
+         "imageURL": ""
+      }
+   },
+    {
+      "pk": 4,
+      "model": "products.product",
+      "fields": {
+         "sku": "vespre-owl-tee",
+         "name": "VESPRE Owl Tee",
+         "description": "<p>All our<span> </span><em>Sunset Collection<span> </span></em>tees are:</p>\n<p>• 100% cotton<br>• Open-end yarn<br>• Tubular fabric<br>• Taped neck and shoulders<br>• Double seam at sleeves and bottom hem</p>\n<p>Need a perfect fit? Check our<span> </span><a href=\"https://vespre-store.com/pages/size-guide\" title=\"Open size guide in external page\" target=\"_blank\">size guide</a><span> </span>for more info!</p>",
+         "price": 17.95,
+         "compare_at_price": 19.95,
+         "has_sizes": true,
+         "image": "image.jpg",
+         "imageURL": ""
+      }
+   }
+   ]

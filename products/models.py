@@ -12,8 +12,8 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
     imageURL = models.URLField(null=True, blank=True)
     
-    #add reviews to model once they are created
-    #reviews = models.ForeignKey(Reviews, on_delete=models.SET_NULL, null=True, blank=True, related_name='reviews')
+    # add reviews to model once they are created
+    # reviews = models.ForeignKey(Reviews, on_delete=models.SET_NULL, null=True, blank=True, related_name='reviews')
 
     def __str__(self):
         return str(self.name)
@@ -25,5 +25,5 @@ class Product(models.Model):
         return rating
     
     def has_discount(self):
-
+        ''' Returns true if the product's price is lower than the product's compare_at_price '''
         return self.price < self.compare_at_price
