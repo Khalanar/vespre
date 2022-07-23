@@ -137,6 +137,9 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+CURRENCY = 'EUR'
+CURRENCY_SYMBOL = '€'
+
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
