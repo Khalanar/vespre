@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <div id="section-featured">
+        <div class="container-fluid container col-12">
+            <!-- <div class="row">
+                <h1 class="display-4 logo-font text-black p-3 w-100 text-center">{{ product }}</h1>
+            </div> -->
+            
+            <div class="row pt-5">
+                <div class="col-12 col-md-6 col-lg-8">
+                    <img class="main-product" src="{{ MEDIA_URL }}{{ product.image }}">
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <h1 class="display-4 logo-font text-black pl-3 w-100">{{ product }}</h1>
+                    <div class="pl-3 mt-3">
+                        {% include 'snippets/price.html' %}
+                        <div class="product-tax">Tax included. Shipping calculated at checkout.</div>
+                    </div>
+                    <div class="pl-3 mt-3">
+                        DESCRIPTION
+                    </div>
+                    <div class="mt-4 text-center pl-3 w-100">
+                        <!-- this redirects to url for discount sorting -->
+                        <a href="{% url 'products' %}" class="btn btn-primary w-100">Add to cart</a> 
+                    </div>
+                    <div class="pl-3 mt-3">
+                        {% include 'snippets/rating.html' with override_text_alignment='text-left' show_link=True%}
+                    </div>
+                    <div class="pl-3 mt-3">
+                        <!-- {% autoescape off %}{{ product.description }}{% endautoescape %} -->
+                        {% include 'snippets/tee-general-info.html' %}
+                        {% include 'snippets/size-chart.html' %}
+                    </div>
+    
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+

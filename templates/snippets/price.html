@@ -1,10 +1,24 @@
-{% if product.is_discounted %}
+{% if request.resolver_match.url_name == 'product_detail' %}
+    {% if product.is_discounted %}
     <div>
         <span class="full-price">
-            <span class="compare-at-price">{{ product.compare_at_price }}</span>
+            <span class="compare-at-price">{{ currency_symbol }}{{ product.compare_at_price }} {{ currency }}</span>
             <span class="price">{{ currency_symbol }}{{ product.price }} {{ currency }}</span>
+            {% include 'snippets/sale-badge.html' with savings=product.savings %}
         </span>
     </div>
-{% else %}
+    {% else %}
     <div><span class="price">{{ currency_symbol }}{{ product.price }} {{ currency }}</span></div>  
+{% endif %}
+{% else %}
+    {% if product.is_discounted %}
+        <div>
+            <span class="full-price">
+                <span class="compare-at-price">{{ product.compare_at_price }}</span>
+                <span class="price">{{ currency_symbol }}{{ product.price }} {{ currency }}</span>
+            </span>
+        </div>
+    {% else %}
+        <div><span class="price">{{ currency_symbol }}{{ product.price }} {{ currency }}</span></div>  
+    {% endif %}
 {% endif %}

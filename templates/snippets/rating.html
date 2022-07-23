@@ -1,13 +1,9 @@
-<div class="rating-container">
-    <!-- {{ product.get_rating }} -->
+<div class="rating-container {{ override_text_alignment }}">
     
     {% for i in max_rating %}
-        <div class="rating-box {%if i < product.get_rating%}} filled {% endif %}"></div>
+        <div class="rating-box {%if i < product.get_rating%} filled {% endif %}"></div>
     {% endfor %}
-  
-    <!-- <div class="rating-box filled"></div>
-    <div class="rating-box  filled"></div>
-    <div class="rating-box filled"></div>
-    <div class="rating-box"></div> -->
-    
+    {% if show_link %}
+        <a href="" class="reviews-link">Read all reviews.</a>
+    {% endif %}
 </div>

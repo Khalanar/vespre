@@ -10,6 +10,7 @@
     --color-base-background-2:  rgb(201, 201, 201);
     
     --color-base-accent-1:  #098476;
+    --color-base-accent-1-light:  #098476a0;
     --color-base-accent-2:  #cae14c;
 
     --font-body-family: Assistant, sans-serif;
@@ -33,6 +34,11 @@ body{
     height:calc(100vh - 164px);
 }
 
+hr{
+    margin: 50px;
+}
+
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -54,8 +60,33 @@ body{
     color: var(--color-secondary-text);
 }
 
-a {
+.highlighted-anchor{
+    font-size: 1.5rem;
+    font-weight: 200;
+    width: 100%;
+    text-align: end;
+}
+
+a{
     color: #098476;
+}
+
+a:hover{
+    color: var(--)
+}
+
+img.main-product{
+    width:100%;
+}
+
+.table-full{
+    width:100%;
+}
+
+.table-full table{
+    width: 250px;
+    border: 1px solid;
+    border-collapse: collapse;
 }
 
 .background-gradient {
@@ -85,6 +116,11 @@ a {
     background-color: var(--color-base-accent-1);
     border-color: var(--color-base-accent-1);
     color: var(--color-secondary-text);
+}
+
+.btn-primary:hover{ 
+    background-color: var(--color-base-accent-1-light);
+    border-color: #09847600;
 }
 
 .btn-secondary{
@@ -149,6 +185,12 @@ a {
 
 .product-card .image-wrapper img{
     overflow: hidden;
+}
+
+.product-tax{
+    font-size: 0.9em;
+    color: var(--color-base-text-2);
+    font-style: italic;
 }
 
 .card-secondary{
@@ -228,6 +270,10 @@ a {
 
 .rating-box.filled{
     background-color: var(--color-base-accent-2);
+}
+
+.reviews-link{
+    margin-left:10px;
 }
 
 /* media queries */

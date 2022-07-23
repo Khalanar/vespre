@@ -20,6 +20,7 @@ def index(request):
     max_rating = [0,1,2,3,4]
 
     context = {
+        'products': products[:8],
         'featured_products': featured_products,
         'currency_symbol': currency_symbol,
         'currency': currency,

@@ -1,0 +1,28 @@
+<div id="section-featured">
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="display-4 logo-font text-black p-3 w-100 text-center">More by Vespre</h1>
+        </div>
+
+        <div class="row">
+            <div class="product-container col-10 offset-1">
+                <div class="row mt-1 mb-2">
+                    {% for product in products %}
+                    <div class="col-6 col-lg-3 col-xl-3">
+                        <div class="border-0">
+                            {% include 'snippets/product-card.html' with product=product card=false %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mt-4 text-center w-100">
+                <!-- this redirects to url for discount sorting -->
+                <a href="{% url 'products' %}" class="btn btn-primary">See all products</a> 
+            </div>
+        </div>
+
+    </div>
+</div>

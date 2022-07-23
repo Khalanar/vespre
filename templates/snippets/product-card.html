@@ -4,7 +4,7 @@
     <div class="card-secondary h-100 p-2">
 {% endif %}
 
-        <a class="card-anchor" href="">
+        <a class="card-anchor" href="{% url 'product_detail' product.id %}">
             <div class="row">
                 <div class="product-card col-12 col-md-{{medium_cols}} col-lg-12">
                     <div class="image-wrapper m-0">
@@ -12,11 +12,11 @@
                         {% if product.is_discounted %}
                         <div class="top-right">{% include 'snippets/sale-badge.html' with savings=product.savings %}</div>
                         {% endif %}
-                        <img src="{{ MEDIA_URL }}/{{ product.image }}">{{ MEDIA.URL }}
+                        <img src="{{ MEDIA_URL }}{{ product.image }}">{{ MEDIA.URL }}
                         
                     </div>
                 </div>
-                <div class="col-12 col-md-{{medium_cols}} col-lg-12 mt-3">
+                <div class="col-12 col-md-{{medium_cols}} col-lg-12 mt-1 mt-lg-4">
                     <div class="row text-center">
                         <div class="col-12">
                             {% include 'snippets/price.html' %}
