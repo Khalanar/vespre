@@ -16,7 +16,7 @@ class Product(models.Model):
     # reviews = models.ForeignKey(Reviews, on_delete=models.SET_NULL, null=True, blank=True, related_name='reviews')
 
     def __str__(self):
-        return str(self.name)
+        return str(self.name.replace('VESPRE ', '').replace(' Tee', ''))
 
     def get_rating(self):
         ''' Get the average rating for this product '''
@@ -24,6 +24,18 @@ class Product(models.Model):
 
         return rating
     
-    def has_discount(self):
+    def is_discounted(self):
         ''' Returns true if the product's price is lower than the product's compare_at_price '''
-        return self.price < self.compare_at_price
+        if self.compare_at_price != 0:
+            return self.price < self.compare_at_price
+        
+        return False
+
+    def savings(self):
+        ''' Returns savings in % '''
+        if self.is_discounted():
+            
+            return str(100 - int(self.price * 100 / self.compare_at_price))
+        else:
+            return 'no savings'
+

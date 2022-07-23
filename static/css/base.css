@@ -4,9 +4,11 @@
 :root{
     /* Declare global variables */
     --color-base-text: #254150;
+    --color-base-text-2: #254150a1;
     --color-secondary-text: #e5e5e5;
     --color-base-background-1:  rgb(201, 201, 201);
     --color-base-background-2:  rgb(201, 201, 201);
+    
     --color-base-accent-1:  #098476;
     --color-base-accent-2:  #cae14c;
 
@@ -119,16 +121,16 @@ a {
     aspect-ratio: 1;
     border-radius: var(--rounded-corder-radius);
     overflow: hidden;
+    position: relative;
 }
 
 .product-card .image-wrapper > img
 {
-    width:200%;
+    width: 190%;
     aspect-ratio: 1;
     position: relative;
-    left: -50%;
+    left: -45%;
     top: -30%;
-    
     transition: all 0.3s;
 }
 
@@ -136,14 +138,65 @@ a {
 {
     width: 300%;
     left: -100%;
-    top: -87%;
+    top: -95%;
 }
 
 .product-card .image-wrapper img{
     overflow: hidden;
 }
 
+.card-secondary{
+    border-radius: var(--rounded-corder-radius);
+    /* background: linear-gradient(180deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(0, 0, 0, 0) 8%,
+        rgba(0, 0, 0, 0.03) 100%); */
+}
 
+.product-title{
+    position: absolute;
+    font-size: 1.2em;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    bottom: 10px;
+    color: var(--color-secondary-text);
+    font-weight: 300;
+}
+
+.card-anchor{
+    color: var(--color-base-text);
+    display:contents;
+}
+
+.sale-badge{
+    border: 1px solid var(--color-base-accent-2);
+    border-radius: calc(var(--rounded-corder-radius) * 1.5);
+    padding: 2px 5px 2px 5px;
+    background-color: var(--color-base-accent-2);
+    color: white;
+    font-weight: 400;
+    margin-right: 5px;
+}
+
+.price{
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+.compare-at-price{
+    color: var(--color-base-text-2);
+    font-size: 1.0em;
+    font-weight: 500;
+    text-decoration: line-through;
+    font-style: italic;
+    margin-right: 5px;
+}
+
+.card-anchor:hover{
+    color: var(--color-base-accent-1);
+    text-decoration: none;
+}
 
 /* media queries */
 @media (min-width: 1200px){

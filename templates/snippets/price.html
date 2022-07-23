@@ -1,1 +1,5 @@
-<p>{{ currency_symbol }}{{ product.price }} {{ currency }}</p>
+{% if product.is_discounted %}
+    <p>{% include 'snippets/sale-badge.html' with savings=product.savings %}<span class="compare-at-price">{{ product.compare_at_price }}</span><span class="price">{{ currency_symbol }}{{ product.price }} {{ currency }}</span></p>
+{% else %}
+    <p><span class="price">{{ currency_symbol }}{{ product.price }} {{ currency }}</span></p>  
+{% endif %}
