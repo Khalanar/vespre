@@ -1,0 +1,13 @@
+<div class="rating-container">
+    <!-- {{ product.get_rating }} -->
+    
+    {% for i in max_rating %}
+        <div class="rating-box {%if i < product.get_rating%}} filled {% endif %}"></div>
+    {% endfor %}
+  
+    <!-- <div class="rating-box filled"></div>
+    <div class="rating-box  filled"></div>
+    <div class="rating-box filled"></div>
+    <div class="rating-box"></div> -->
+    
+</div>

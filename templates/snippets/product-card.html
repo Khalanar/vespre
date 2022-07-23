@@ -1,24 +1,34 @@
 {% if card == true %}
-    <div class="card h-100 p-4 mt-4">
+    <div class="card h-100 p-4">
 {% else %}
-    <div class="card-secondary h-100 p-2 mt-4">
+    <div class="card-secondary h-100 p-2">
 {% endif %}
 
-
-        <div class="row">
-            <a class="card-anchor" href="">
-            <div class="product-card col-12 col-md-{{medium_cols}} col-lg-12">
-                <div class="image-wrapper m-0">
-                    <div class="product-title">{{ product }}</div>
-                    <img src="{{ MEDIA_URL }}/{{ product.image }}">{{ MEDIA.URL }}
-                    
+        <a class="card-anchor" href="">
+            <div class="row">
+                <div class="product-card col-12 col-md-{{medium_cols}} col-lg-12">
+                    <div class="image-wrapper m-0">
+                        <div class="product-title">{{ product }}</div>
+                        {% if product.is_discounted %}
+                        <div class="top-right">{% include 'snippets/sale-badge.html' with savings=product.savings %}</div>
+                        {% endif %}
+                        <img src="{{ MEDIA_URL }}/{{ product.image }}">{{ MEDIA.URL }}
+                        
+                    </div>
+                </div>
+                <div class="col-12 col-md-{{medium_cols}} col-lg-12 mt-3">
+                    <div class="row text-center">
+                        <div class="col-12">
+                            {% include 'snippets/price.html' %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            {% include 'snippets/rating.html' %}
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-12 col-md-{{medium_cols}} col-lg-12 mt-3">
-                <!-- <h5>{{ product }}</h5> -->
-                {% include 'snippets/price.html' %}
-                <p>rating</p>
-            </div>
         </a>
-        </div>
+
     </div>

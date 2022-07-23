@@ -1,15 +1,16 @@
 <div id="section-featured" class="background-gradient">
-    <div class="container h-100 section-narrow" >
+    <div class="container section-narrow" >
         <div class="row h-100 px-3">
             <div class="col-12 col-md-6 col-lg-5 card p-3">
-                <h1 class="display-4 logo-font text-black p-3">Featured products</h1>
-                <p class="p-3">See all our discounts. Up to PLACEHOLDER in to celebrate this summer! </p>
+                <h1 class="d-block d-md-none d-xl-none display-4 logo-font text-black p-3">Featured products</h1>
+                <h1 class="d-none  d-md-block d-xl-block display-5 logo-font text-black p-3">Featured products</h1>
+                <p class="p-3">While stocks last, enjoy some savings on our summer collection. Up to 40% off to celebrate this summer! </p>
                 <div class="mt-4 text-center h-100">
                     <a href="{% url 'products' %}" class="btn btn-primary">See all products</a>
                 </div>
             </div>
             <div class="col-12 col-md-6 col-lg-7 pl-3 pl-md-4">
-                <div class="row h-100 py-4">
+                <div class="row py-4 py-md-0">
                     {% include 'snippets/product-card-flex.html' with product=products.0 %}
                     {% include 'snippets/product-card-flex.html' with product=products.1 isLast=True%}
                 </div>
