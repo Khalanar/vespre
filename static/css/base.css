@@ -116,7 +116,6 @@ a {
 .product-card .image-wrapper
 {
     width:100%;
-    max-width: 200px;
     aspect-ratio: 1;
     border-radius: var(--rounded-corder-radius);
     overflow: hidden;

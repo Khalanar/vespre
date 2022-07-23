@@ -1,0 +1,18 @@
+{% if card == true %}
+    <div class="card h-100 p-4 mt-4">
+{% else %}
+    <div class="h-100 p-2 mt-4">
+{% endif %}
+        <div class="row">
+            <div class="product-card col-12 col-md-6 col-lg-12">
+                <div class="image-wrapper m-auto">
+                    <img src="{{ MEDIA_URL }}/{{ product.image }}">{{ MEDIA.URL }}
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-12 mt-3">
+                <h5>{{ product }}</h5>
+                {% include 'snippets/price.html' %}
+                <p>rating</p>
+            </div>
+        </div>
+    </div>
