@@ -5,14 +5,7 @@ from django.conf import settings
 # Create your views here.
 def index(request):
     """ View that returns the index page """
-
-    featured_products = []
-
     products = Product.objects.all()
-
-    for product in products:
-        if product.is_discounted():
-            featured_products.append(product)
 
     currency_symbol = settings.CURRENCY_SYMBOL
     currency = settings.CURRENCY
@@ -21,7 +14,6 @@ def index(request):
 
     context = {
         'products': products[:8],
-        'featured_products': featured_products,
         'currency_symbol': currency_symbol,
         'currency': currency,
         'max_rating': max_rating
