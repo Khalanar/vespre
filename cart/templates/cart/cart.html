@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<div id="section-featured">
+    <div class="container-fluid container col-12">
+        <div class="row">
+            <h1 class="display-4 logo-font text-black p-3 w-100 text-center">Your shopping cart</h1>
+        </div>
+        
+        <div class="row pt-5 text-center  mb-5">
+            <div class="col">
+                {% if bag_items %}
+                    <div class="table-responsive rounded d-none d-md-block">
+                        <table class="table table-sm table-borderless">
+                            <thead class="text-black">
+                                <tr>
+                                    <th scope="col">Product Info</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Qty</th>
+                                    <th scope="col">Subtotal</th>
+                                </tr>
+                            </thead>
+
+                            {% for item in cart_items %}
+                                <tr>
+                                    <td class="p-3 w-25">
+                                       image
+                                    </td>
+                                    <td class="py-3">
+                                        info
+                                    </td>
+                                    <td class="py-3">
+                                       price
+                                    </td>
+                                    <td class="py-3 w-25">
+                                       quantity
+                                    </td>
+                                    <td class="py-3">
+                                       subtotal
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td colspan="5" class="pt-5 text-right">
+                                    snippet total
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="text-right">
+                                    checkout buttons
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                {% else %}
+                    <p class="lead mb-5">Your cart is empty.</p>
+                    <a href="{% url 'products' %}" class="btn btn-primary">
+                        <span class="text-uppercase">Continue shopping</span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+        {% include 'snippets/sections/featured.html' with products=featured_products %}
+</div>
+
+
+{% endblock %}
