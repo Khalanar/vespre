@@ -1,31 +1,92 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from products.models import Product
-from django.conf import settings
 
-# Create your views here.
+
 def view_cart(request):
     """ View that returns the cart page """
-
-    featured_products = []
-
-    products = Product.objects.all()
-
-    for product in products:
-        if product.is_discounted():
-            featured_products.append(product)
-            print('found a discounted one')
-
-    currency_symbol = settings.CURRENCY_SYMBOL
-    currency = settings.CURRENCY
-
-    max_rating = [0,1,2,3,4]
-
-    context = {
-        'products': products[:8],
-        'featured_products': featured_products,
-        'currency_symbol': currency_symbol,
-        'currency': currency,
-        'max_rating': max_rating
-    }
     
-    return render(request, "cart/cart.html", context)
+    return render(request, "cart/cart.html")
+
+
+def add_to_cart(request, item_id):
+    """ Add product to cart """
+
+    quantity = int(request.POST.get('quantity'))
+    redirect_url = request.POST.get('redirect_url')
+
+    size = None
+    if 'product_size' in request.POST:
+        size = request.POST['product_size']
+
+    cart = request.session.get('cart', {})
+
+    if size:
+        if item_id in list(cart.keys()):
+            if size in cart[item_id]['items_by_size'].keys():
+                cart[item_id]['items_by_size'][size] += quantity
+            else:
+                cart[item_id]['items_by_size'][size] = quantity
+        else:
+            cart[item_id] = {'items_by_size': {size: quantity}}
+    else:
+        if item_id in list(cart.keys()):
+            cart[item_id] += quantity
+        else:
+            cart[item_id] = quantity
+
+    request.session['cart'] = cart
+
+    print(request.session['cart'])
+    return redirect(redirect_url)
+
+
+def adjust_cart(request, item_id):
+    """Adjust the quantity of the specified product to the specified amount"""
+
+    product = get_object_or_404(Product, pk=item_id)
+    quantity = int(request.POST.get('quantity'))
+    size = None
+    if 'product_size' in request.POST:
+        size = request.POST['product_size']
+
+    cart = request.session.get('cart', {})
+
+    if size:
+        if quantity > 0:
+            cart[item_id]['items_by_size'][size] = quantity
+        else:
+            del cart[item_id]['items_by_size'][size]
+            if not cart[item_id]['items_by_size']:
+                cart.pop(item_id)
+    else:
+        if quantity > 0:
+            cart[item_id] = quantity
+        else:
+            cart.pop(item_id)
+
+    request.session['cart'] = cart
+    return redirect(reverse('view_cart'))
+
+
+def remove_from_cart(request, item_id):
+    """Remove the item from the shopping cart"""
+
+    try:
+        product = get_object_or_404(Product, pk=item_id)
+        size = None
+        if 'product_size' in request.POST:
+            size = request.POST['product_size']
+        cart = request.session.get('cart', {})
+
+        if size:
+            del cart[item_id]['items_by_size'][size]
+            if not cart[item_id]['items_by_size']:
+                cart.pop(item_id)
+        else:
+            cart.pop(item_id)
+
+        request.session['cart'] = cart
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        return HttpResponse(status=500)

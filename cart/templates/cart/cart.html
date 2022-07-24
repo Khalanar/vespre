@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load cart_tools %}
 
 {% block page_header %}
     <div class="container header-container">
@@ -20,7 +20,44 @@
         
         <div class="row pt-5 text-center  mb-5">
             <div class="col">
-                {% if bag_items %}
+  
+                {% if cart_items %}
+                    <div class="d-block d-md-none">
+                        <div class="row">
+                            <div class="col">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-muted mb-5">A summary of your cart contents is below</p>
+                            </div>
+                        </div>
+                        {% for item in cart_items %}
+                            <div class="row">
+                                <div class="col-12 col-sm-6 mb-2">
+                                    image
+                                </div>
+                                <div class="col-12 col-sm-6 mb-2">
+                                    {{ item.product.name }} | {{ item.size|upper }}
+                                </div>
+                                
+                                <div class="col-12 col-sm-6 order-sm-last">
+                                    <p class="my-0">Price Each: {{ currency_symbol }}{{ item.product.price }} {{ currency }}</p>
+                                    <p><strong>Subtotal: </strong>{{ currency_symbol }}{{ item.product.price  }} {{ currency }}</p>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    {% include "cart/quantity_form.html" %}
+
+                                </div>
+                            </div>
+                            <hr>
+                        {% endfor %}
+                        <!-- <div class="btt-button shadow-sm rounded-0 border border-black">
+                            <a class="btt-link d-flex h-100">
+                                <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+                            </a>	
+                        </div> -->
+                    </div>
                     <div class="table-responsive rounded d-none d-md-block">
                         <table class="table table-sm table-borderless">
                             <thead class="text-black">
@@ -34,37 +71,31 @@
                             </thead>
 
                             {% for item in cart_items %}
-                                <tr>
+                                <tr class="underline-table">
                                     <td class="p-3 w-25">
-                                       image
+                                        <img class="cart-image" src="{{ MEDIA_URL }}{{ item.product.image }}">
                                     </td>
                                     <td class="py-3">
-                                        info
+                                        {{ item.product.name }} | {{ item.size|upper }}
                                     </td>
                                     <td class="py-3">
-                                       price
+                                        <p class="my-0">{{ currency_symbol }}{{ item.product.price }} {{ currency }}</p>
                                     </td>
                                     <td class="py-3 w-25">
-                                       quantity
+                                        {% include "cart/quantity_form.html" %}
                                     </td>
                                     <td class="py-3">
-                                       subtotal
+                                        <p class="my-0">{{ currency_symbol }}{{ item.product.price | calculate_subtotal:item.quantity }} {{ currency }}</p>
                                     </td>
+                                    
                                 </tr>
+                                
                             {% endfor %}
-                            <tr>
-                                <td colspan="5" class="pt-5 text-right">
-                                    snippet total
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="5" class="text-right">
-                                    checkout buttons
-                                </td>
-                            </tr>
+                            
                         </table>
                     </div>
                 {% else %}
+
                     <p class="lead mb-5">Your cart is empty.</p>
                     <a href="{% url 'products' %}" class="btn btn-primary">
                         <span class="text-uppercase">Continue shopping</span>
@@ -77,5 +108,35 @@
         {% include 'snippets/sections/featured.html' %}
 </div>
 
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'snippets/quantity_input_script.html' %}
+
+<script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function(e) {
+        var form = $('.update-form');
+        console.log('submit product quantity form');
+        form.submit();
+        console.log('submit should have happened already')
+    })
+
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var size = $(this).data('product_size');
+        var url = `/cart/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+</script>
 
 {% endblock %}
