@@ -1,5 +1,7 @@
 from django.db import models
 
+#FOR TESTING PURPOSES ONLY
+import random
 
 class Product(models.Model):
     ''' Model for product objects '''
@@ -9,6 +11,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     compare_at_price = models.DecimalField(max_digits=6, decimal_places=2)
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
+    rating = models.PositiveSmallIntegerField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     imageURL = models.URLField(null=True, blank=True)
     
@@ -18,11 +21,12 @@ class Product(models.Model):
     def __str__(self):
         return str(self.name.replace('VESPRE ', '').replace(' Tee', ''))
 
-    def get_rating(self):
+    def update_rating(self):
         ''' Get the average rating for this product '''
-        rating = 4
+        #FOR TESTING PURPOSES ONLY
+        self.rating = random.randint(3, 5)
 
-        return rating
+        self.save()
     
     def is_discounted(self):
         ''' Returns true if the product's price is lower than the product's compare_at_price '''
