@@ -17,12 +17,12 @@ import json
 def cache_checkout_data(request):
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
-        stripe.api_key = settings.STRIPE_SECRET_KEY
-        stripe.PaymentIntent.modify(pid, metadata={
-            'cart': json.dumps(request.session.get('cart', {})),
-            'save_info': request.POST.get('save_info'),
-            'username': request.user,
-        })
+        # stripe.api_key = settings.STRIPE_SECRET_KEY
+        # stripe.PaymentIntent.modify(pid, metadata={
+        #     'cart': json.dumps(request.session.get('cart', {})),
+        #     'save_info': request.POST.get('save_info'),
+        #     'username': request.user,
+        # })
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, 'Sorry, your payment cannot be \
@@ -31,8 +31,8 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
-    stripe_public_key = settings.STRIPE_PUBLIC_KEY
-    stripe_secret_key = settings.STRIPE_SECRET_KEY
+    # stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    # stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
         cart = request.session.get('cart', {})
@@ -96,43 +96,44 @@ def checkout(request):
             return redirect(reverse('products'))
 
         current_cart = cart_contents(request)
-        total = current_cart['grand_total']
-        stripe_total = round(total * 100)
-        stripe.api_key = stripe_secret_key
-        intent = stripe.PaymentIntent.create(
-            amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY,
-        )
+        total = current_cart['total']
+        # stripe_total = round(total * 100)
+        # stripe.api_key = stripe_secret_key
+        # intent = stripe.PaymentIntent.create(
+        #     amount=stripe_total,
+        #     currency=settings.STRIPE_CURRENCY,
+        # )
 
         # Attempt to prefill the form with any info the user maintains in their profile
-        if request.user.is_authenticated:
-            try:
-                profile = UserProfile.objects.get(user=request.user)
-                order_form = OrderForm(initial={
-                    'full_name': profile.user.get_full_name(),
-                    'email': profile.user.email,
-                    'phone_number': profile.default_phone_number,
-                    'country': profile.default_country,
-                    'postcode': profile.default_postcode,
-                    'town_or_city': profile.default_town_or_city,
-                    'street_address1': profile.default_street_address1,
-                    'street_address2': profile.default_street_address2,
-                    'county': profile.default_county,
-                })
-            except UserProfile.DoesNotExist:
-                order_form = OrderForm()
-        else:
-            order_form = OrderForm()
+    #     if request.user.is_authenticated:
+    #         try:
+    #             profile = UserProfile.objects.get(user=request.user)
+    #             order_form = OrderForm(initial={
+    #                 'full_name': profile.user.get_full_name(),
+    #                 'email': profile.user.email,
+    #                 'phone_number': profile.default_phone_number,
+    #                 'country': profile.default_country,
+    #                 'postcode': profile.default_postcode,
+    #                 'town_or_city': profile.default_town_or_city,
+    #                 'street_address1': profile.default_street_address1,
+    #                 'street_address2': profile.default_street_address2,
+    #                 'county': profile.default_county,
+    #             })
+    #         except UserProfile.DoesNotExist:
+    #             order_form = OrderForm()
+    #     else:
+    #         order_form = OrderForm()
+        order_form = OrderForm()
 
-    if not stripe_public_key:
-        messages.warning(request, 'Stripe public key is missing. \
-            Did you forget to set it in your environment?')
+    # if not stripe_public_key:
+    #     messages.warning(request, 'Stripe public key is missing. \
+    #         Did you forget to set it in your environment?')
 
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
-        'stripe_public_key': stripe_public_key,
-        'client_secret': intent.client_secret,
+        'stripe_public_key': 'spk',
+        'client_secret': 'cs',
     }
 
     return render(request, template, context)

@@ -335,7 +335,6 @@ img.main-product{
 }
 
 .input-group{
-    border: 1px solid var(--color-secondary-text);
     box-sizing: initial;
 }
 
