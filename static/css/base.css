@@ -130,6 +130,12 @@ img.main-product{
     border-color: #09847600;
 }
 
+.btn-primary:active, .btn-primary:focus{ 
+    background-color: var(--color-base-accent-1) !important;
+    border-color: var(--color-base-accent-1) !important;
+    color: var(--color-secondary-text) !important;
+}
+
 .btn-secondary{
     background-color: var(--color-base-accent-2);
     border-color: var(--color-base-accent-2);
@@ -386,6 +392,17 @@ img.main-product{
     right: 16px;
 }
 
+.btn-soft{
+    border: 1px solid var(--color-base-accent-1);
+    color: var(--color-base-accent-1)
+}
+
+.btn-soft:hover{
+    border: 1px solid var(--color-base-accent-1-light);
+    color: var(--color-base-accent-1-light);
+    background-color: var();
+}
+
 /* Bootstrap color overwrites */
 
 .bg-success{
@@ -425,6 +442,21 @@ img.main-product{
     overflow-x: hidden;
     overflow-y: auto;
 }
+/* Allauth form formatting */
+
+.allauth-form-inner-content p {
+    margin-top: 1.5rem; /* mt-4 */
+    color: #6c757d; /* text-secondary */
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
 
 /* media queries */
 @media (min-width: 1200px){
