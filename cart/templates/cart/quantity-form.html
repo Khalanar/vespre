@@ -1,10 +1,10 @@
 <div class="row">
-    <div class="col-12">
+    <div class="col-12 col-md-8">
         <form class="form update-form quantity-form" method="POST" action="{% url 'adjust_cart' item.item_id %}">
             
             {% csrf_token %}
             <div class="form-group">
-                <div class="input-group">
+                <div class="input-group border-primary">
                     <div class="input-group-prepend">
                         <button class="decrement-qty btn btn-sm btn-black rounded-0" 
                             data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
@@ -30,9 +30,15 @@
                     {% endif %}
                 </div>
             </div>
+            
         </form>
+        <a class="d-block d-md-none remove-item icon-secondary" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><i class="fa-solid fa-trash-can"></i></a>
     </div>
-    <div class="col-12">
+    <div class="d-none d-md-block  ">
+        <a class="remove-item icon-secondary" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><i class="fa-solid fa-trash-can"></i></a>
+    </div>
+    <!-- 2 buttons
+        <div class="col-12">
         <div class="row">
             <div class="col-4 offset-2">
                 <a class="update-link text-info"><small>Update</small></a>
@@ -41,8 +47,7 @@
                 <a class="remove-item text-danger" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
             </div>
         </div>
-        
-    </div>
+    </div> -->
 
 </div>
 

@@ -19,6 +19,7 @@
     --color-button-accent-1:  #098476;
     --color-button-accent-2:  #cae14c;
 
+    --color-border-soft: #dee2e6;
     --rounded-corder-radius: 0.25em;
 
     --form-placeholder-color: #a2afbb;
@@ -53,6 +54,14 @@ hr{
     justify-content: center;
     height: 1.5rem;
     width: 1.5rem;
+}
+
+.icon-secondary{
+    color: var(--form-placeholder-color)
+}
+
+.icon-secondary:hover{
+    color: var(--color-base-accent-1)
 }
 
 .header-container{
@@ -94,6 +103,19 @@ img.main-product{
     width: 250px;
     border: 1px solid;
     border-collapse: collapse;
+}
+
+.table-bottom-border{
+    border-bottom: 1px solid var(--color-border-soft);
+}
+
+.table-cart{
+    text-align: left;
+}
+
+.table-cart th{
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 300;
 }
 
 .background-gradient {
@@ -346,6 +368,12 @@ img.main-product{
     box-sizing: initial;
 }
 
+.border-primary{
+    border: 1px solid var(--color-border-soft) !important;
+    border-radius: var(--rounded-corder-radius);
+}
+
+
 .quantity-input{
     width: 45px !important;
     text-align: center;
@@ -361,12 +389,11 @@ img.main-product{
     width:143px !important;
 }
 
-.message-container{
+.message-container {
     position: fixed;
-    top: 65px;
-    right: 30px;
+    top: 139px;
+    right: 38px;
     z-index: 9999;
-
 }
 
 .custom-toast{
@@ -463,6 +490,7 @@ img.main-product{
     .container {
         max-width: 930px;
     }
+    
 }
 
 @media (min-width: 992px){
@@ -477,6 +505,15 @@ img.main-product{
     .header-container{
         padding-top: 120px;
     }
+
+    .message-container{
+        position: fixed;
+        top: 65px;
+        right: 30px;
+        z-index: 9999;
+    
+    }
+
 }
 
 @media (max-width: 768px){

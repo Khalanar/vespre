@@ -59,33 +59,33 @@
                         </div>
                     </div>
                     <div class="table-responsive rounded d-none d-md-block">
-                        <table class="table table-sm table-borderless">
+                        <table class="table table-sm table-borderless table-cart">
                             <thead class="text-black">
                                 <tr>
                                     <th scope="col">Product Info</th>
                                     <th scope="col"></th>
-                                    <th scope="col">Price</th>
+                                    <!-- <th scope="col">Price</th> -->
                                     <th scope="col">Qty</th>
                                     <th scope="col">Subtotal</th>
                                 </tr>
                             </thead>
 
                             {% for item in cart_items %}
-                                <tr>
+                                <tr class="table-bottom-border">
                                     <td class="p-3 w-25">
                                         {% include "cart/product-image.html" %}
                                     </td>
                                     <td class="py-3">
                                         {% include "cart/product-info.html" %}
                                     </td>
-                                    <td class="py-3">
+                                    <!-- <td class="py-3">
                                         <p class="my-0">${{ item.product.price }}</p>
-                                    </td>
+                                    </td> -->
                                     <td class="py-3 w-25">
                                         {% include "cart/quantity-form.html" %}
                                     </td>
                                     <td class="py-3">
-                                        <p class="my-0">${{ item.product.price | calculate_subtotal:item.quantity }}</p>
+                                        <p class="my-0">€{{ item.product.price | calculate_subtotal:item.quantity }} EUR</p>
                                     </td>
                                 </tr>
                             {% endfor %}
@@ -127,10 +127,13 @@
 {% include 'snippets/quantity_input_script.html' %}
 
 <script type="text/javascript">
+
     // Update quantity on click
     $('.update-link').click(function(e) {
         var form = $('.update-form');
         console.log('submit product quantity form');
+        console.log($('.qty_input').val())
+
         form.submit();
         console.log('submit should have happened already')
     })
