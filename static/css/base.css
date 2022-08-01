@@ -373,6 +373,9 @@ img.main-product{
     border-radius: var(--rounded-corder-radius);
 }
 
+.bs-content{
+    box-sizing: content-box;
+}
 
 .quantity-input{
     width: 45px !important;
