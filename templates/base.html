@@ -79,9 +79,9 @@
                                     </div>
                                     <p class="my-0">
                                         {% if total %}
-                                        {{ total|floatformat:2 }}
+                                        {{ total|floatformat:2 }}{{ currency_symbol }}
                                         {% else %}
-                                        0.00
+                                        0.00{{ currency_symbol }}
                                         {% endif %}
                                     </p>
                                 </div>
