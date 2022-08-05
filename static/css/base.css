@@ -259,6 +259,14 @@ img.main-product{
     margin-right: 5px;
 }
 
+.admin-badge{
+    color: white;
+    background-color: #ff8d00b5;
+    font-size: 0.9em;
+    border-radius: var(--rounded-corder-radius);
+    padding: 1px 3px;
+    margin: 0px;
+}
 
 .top-right {
     z-index: 1;
@@ -309,6 +317,10 @@ img.main-product{
 
 .reviews-link{
     margin-left:10px;
+}
+
+a.danger{
+    color:red;
 }
 
 .product-form{
