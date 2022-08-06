@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-!3-i83x*=6ac%7q$tb0y09b9ma%pnvza89q-a5ju2tw+@b#=mu
 DEBUG = 'DEVELOPMENT' in os.environ
 
 
-ALLOWED_HOSTS = ['localhost', 'https://vespre.herokuapp.com/']
+ALLOWED_HOSTS = ['localhost', 'vespre.herokuapp.com']
 
 
 # Application definition
