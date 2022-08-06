@@ -1,15 +1,23 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .forms import ReviewForm
 from products.models import Product
+from django.contrib import messages
+
 
 def add_review(request, product_id):
-    if request.GET:
-        form = ReviewForm(initial={'product': product_id})
-        product = get_object_or_404(Product, id=product_id)
+    
+    product = get_object_or_404(Product, id=product_id)
+
+    if request.POST:
+        form = ReviewForm(request.POST, request.FILES)
+        if form.is_valid():
+            product = form.save()
+            messages.success(request, 'Successfully added review!')
+
+            # return redirect(reverse('product_detail', args=[product.id]))
+            return redirect(reverse('home'))
     else:
         form = ReviewForm(initial={'product': product_id})
-        product = get_object_or_404(Product, id=product_id)
-
 
     template = 'reviews/add_review.html'
 

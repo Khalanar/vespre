@@ -27,11 +27,11 @@
                             {% for field in form %}
                                 {% if field.name == 'rating' %}
                                 <div>
-                                    <input type="radio" id="rating" name="rating" value="1">
-                                    <input type="radio" id="rating" name="rating" value="2">
-                                    <input type="radio" id="rating" name="rating" value="3">
-                                    <input type="radio" id="rating" name="rating" value="4">
-                                    <input type="radio" id="rating" name="rating" value="5">
+                                    <input type="checkbox" class="rating" id="rating" name="rating" value="1">
+                                    <input type="checkbox" class="rating" id="rating" name="rating" value="2">
+                                    <input type="checkbox" class="rating" id="rating" name="rating" value="3">
+                                    <input type="checkbox" class="rating" id="rating" name="rating" value="4">
+                                    <input type="checkbox" class="rating" id="rating" name="rating" value="5">
                                 </div>
                                 {% else %}
                                     {{ field | as_crispy_field }}
@@ -54,8 +54,24 @@
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript">
-        productField = document.getElementsByName('product')[0]
-        productField.setAttribute('disabled', '');
+        productField = document.getElementById('div_id_product')
+        productField.style.display = 'none'
+
+        checkboxes = document.getElementsByName('rating')
+
+        for (let i=0; i<checkboxes.length; i++){
+            checkboxes[i].addEventListener('click', (event)=>{
+                console.log("Clicked checkbox #" + event.target.value)
+                //reset all checkboxes
+                for (let j=0; j<checkboxes.length; j++){
+                    checkboxes[j].checked = false
+                }
+
+                for(let j=0; j<event.target.value; j++){
+                    checkboxes[j].checked = true
+                }
+            })
+        }
 
     </script>
 
