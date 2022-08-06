@@ -31,8 +31,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 DEBUG = 'DEVELOPMENT' in os.environ
 
 
-ALLOWED_HOSTS = ['localhost', 'vespre.herokuapp.com']
-
+ALLOWED_HOSTS = ['localhost', 'vespre.herokuapp.com', '8000-khalanar-vespre-wbfchs5rflz.ws-eu59.gitpod.io/']
+CSRF_TRUSTED_ORIGINS = ['https://8000-khalanar-vespre-wbfchs5rflz.ws-eu59.gitpod.io', 'https://vespre.herokuapp.com']
 
 # Application definition
 
