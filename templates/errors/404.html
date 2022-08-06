@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+    <h1 class="display-4 logo-font text-black p-3 w-100 text-center">Uh oh...</h1>
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <div class="m-3">
+                <p>This is embarrassing, but it happened. Not sure what, but it definitely happened...</p>
+                <p>Something broke and honestly the best thing you can do is go back to the <a href="{% url 'home' %}">homepage</a> while crossing your fingers</p>
+                <p>SORRY!</p>
+            </div>
+
+        </div>
+    </div>
+   
+
+{% endblock %}

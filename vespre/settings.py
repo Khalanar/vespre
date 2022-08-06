@@ -30,6 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
+print(f'DEBUG SET TO {DEBUG}')
 
 ALLOWED_HOSTS = ['localhost', 'vespre.herokuapp.com', '8000-khalanar-vespre-wbfchs5rflz.ws-eu59.gitpod.io/']
 CSRF_TRUSTED_ORIGINS = ['https://8000-khalanar-vespre-wbfchs5rflz.ws-eu59.gitpod.io', 'https://vespre.herokuapp.com']
