@@ -41,7 +41,7 @@
                             <tr>
        
                                 <td><a href="{% url 'order_history' order.order_number %}"
-                                    title="{{ order.order_number }}">{{ order.date |date:"M jS 'y" }}</a></td>
+                                    title="{{ order.order_number }}">{{ order.date | date:"M jS 'y" }}</a></td>
                                 <td>
                                     <ul class="list-unstyled">
                                         {% for item in order.lineitems.all %}

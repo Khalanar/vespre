@@ -1,13 +1,10 @@
 <div class="rating-container {{ override_text_alignment }}">
     
     {% if product.rating > 0 %}
-        {% for i in max_rating %}
-        <div class="rating-box {% if i < product.rating %} filled {% endif %}"></div>
-        {% endfor %}
-        {{product.rating}}/5
+        {% include 'snippets/rating_boxes.html' with rating=product.rating %}
 
         {% if show_link %}
-        <a href="" class="reviews-link">Read reviews</a> or <a href="{% url 'add_review' product.id %}">write one!</a>
+        <a href="#reviews" class="reviews-link">Read reviews</a> or <a href="{% url 'add_review' product.id %}">write one!</a>
         {% endif %}
 
     {% else %}

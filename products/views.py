@@ -73,8 +73,11 @@ def product_detail(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     max_rating = [0, 1, 2, 3, 4]
 
+    reviews = product.reviews.all()
+
     context = {
         'product': product,
+        'reviews': reviews,
     }
 
     return render(request, 'products/product_detail.html', context)

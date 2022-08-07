@@ -1,8 +1,3 @@
-<h6><strong>Cart Total: {{ currency_symbol }}{{ total|floatformat:2 }} {{ currency }}</strong></h6>
-<h6>Discounts: ${{ delivery|floatformat:2 }}</h6>
-<h4 class="mt-4"><strong>Grand Total: {{ currency_symbol }}{{ total|floatformat:2 }} {{ currency }}</strong></h4>
-<!-- {% if free_delivery_delta > 0 %}
-    <p class="mb-1 text-danger">
-        You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
-    </p>
-{% endif %} -->
+<h6><strong>Subtotal: {{ currency_symbol }}{{ total|floatformat:2 }} {{ currency }}</strong></h6>
+<p></p>Discounts: ${{ delivery|floatformat:2 }}</p>
+<h4 class="mt-4">Total: {{ currency_symbol }}{{ total|floatformat:2 }} {{ currency }}</h4>

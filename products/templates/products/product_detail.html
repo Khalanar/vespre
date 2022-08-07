@@ -18,7 +18,7 @@
                 <h1 class="display-4 logo-font text-black p-3 w-100 text-center">{{ product }}</h1>
             </div> -->
             
-            <div class="row pt-5">
+            <div class="row pt-5 mb-5">
                 <div class="col-12 col-md-6 col-lg-7">
                     <img class="main-product" src="{{ MEDIA_URL }}{{ product.image }}">
                 </div>
@@ -85,13 +85,7 @@
                                     <label for="size-xl">XL</label>
                                     
                                 </fieldset>
-                                <!-- <select class="form-control rounded-0 w-50" name="product_size" id='id_product_size'>
-                                    <option value="xs">XS</option>
-                                    <option value="s">S</option>
-                                    <option value="m" selected>M</option>
-                                    <option value="l">L</option>
-                                    <option value="xl">XL</option>
-                                </select> -->
+      
                             </div>
                             {% endif %}
 
@@ -114,6 +108,17 @@
     
                 </div>
 
+            </div>
+            <div id="reviews" class="row">
+                <div class="col-12">
+                    {% if reviews %}
+                        <h3 class="mb-5">What our customers have to say:</h3>
+                        {% for review in reviews %}
+                            {% include 'snippets/review_detail.html' with review=review %}
+                            <hr>
+                        {% endfor %}
+                    {% endif %}
+                </div>
             </div>
 
         </div>
