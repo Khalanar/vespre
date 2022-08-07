@@ -11,7 +11,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     compare_at_price = models.DecimalField(max_digits=6, decimal_places=2)
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
-    rating = models.PositiveSmallIntegerField(null=True, blank=True)
+    rating = models.SmallIntegerField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     imageURL = models.URLField(null=True, blank=True)
     
@@ -23,8 +23,20 @@ class Product(models.Model):
 
     def update_rating(self):
         ''' Get the average rating for this product '''
-        #FOR TESTING PURPOSES ONLY
-        self.rating = random.randint(3, 5)
+        
+        rating_sum = 0
+        reviews_count = 0
+        _rating = 0
+
+        print(f'{self.name} - {self.reviews.all().count()}')
+
+        for review in self.reviews.all():
+            reviews_count += 1
+            rating_sum += review.rating
+
+        _rating = rating_sum / reviews_count if reviews_count > 0 else -1
+
+        self.rating = _rating
 
         self.save()
     

@@ -1,9 +1,18 @@
 <div class="rating-container {{ override_text_alignment }}">
     
-    {% for i in max_rating %}
+    {% if product.rating > 0 %}
+        {% for i in max_rating %}
         <div class="rating-box {% if i < product.rating %} filled {% endif %}"></div>
-    {% endfor %}
-    {% if show_link %}
-        <a href="" class="reviews-link">Read all reviews.</a>
+        {% endfor %}
+        {{product.rating}}/5
+
+        {% if show_link %}
+        <a href="" class="reviews-link">Read reviews</a> or <a href="{% url 'add_review' product.id %}">write one!</a>
+
     {% endif %}
+
+    {% else %}
+        No reviews - <a href="{% url 'add_review' product.id %}">be the first to leave your comments!</a>
+    {% endif %}
+
 </div>
