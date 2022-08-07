@@ -1,4 +1,5 @@
 from django.db import models
+
 from django.core.validators import MaxValueValidator, MinValueValidator
 from products.models import Product
 
@@ -18,3 +19,9 @@ class Review(models.Model):
         return name and date
         """
         return f'Reviewed by {self.name} on {self.date_created}'
+
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        print('review is saved!')
+        self.product.save()

@@ -24,9 +24,9 @@ def all_products(request):
             sortkey = request.GET['sort']
             sort = sortkey
 
-            if sort == 'rating':
-                for product in products:
-                    product.update_rating()
+            # if sort == 'rating':
+            #     for product in products:
+            #         product.update_rating()
 
             if sortkey == 'name':
                 sortkey == 'lower_name'
