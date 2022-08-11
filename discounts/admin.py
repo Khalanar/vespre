@@ -5,12 +5,14 @@ from .models import Discount
 class DiscountAdmin(admin.ModelAdmin):
     list_display = (
         'name',
-        'type',
+        'code',
         'amount',
+        'type',
         'is_active',
         'date_created',
     )
-
+    prepopulated_fields = {'code': ('name',)}
+    
     ordering = ('-date_created',)
 
 admin.site.register(Discount, DiscountAdmin)
