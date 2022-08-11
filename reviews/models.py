@@ -20,8 +20,7 @@ class Review(models.Model):
         """
         return f'Reviewed by {self.name} on {self.date_created}'
 
-
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         print('review is saved!')
-        self.product.save()
+        # self.product.save()
