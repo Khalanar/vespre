@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <hr>
+                <h2 class="logo-font mb-4">Create a new discount</h2>
+                <div class="row">
+                    <div class="col-12 col-md-6 offset-md-3">
+                        <form method="POST" action="{% url 'add_discount' %}" class="form mb-2" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% for field in form %}
+                              
+                                {{ field | as_crispy_field }}
+
+                            {% endfor %}
+                            <div class="text-right">
+                                <a class="btn btn-soft" href="{% url 'products' %}">Cancel</a>
+                                <button class="btn btn-primary" type="submit">Add Product</button>
+                            </div>
+                        </form>
+                    </div>            
+                </div>
+                <hr>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    
+    $('#id_name').on('input', ()=>{
+        let title = $('#id_name').val().toUpperCase();
+        title = title.replaceAll(" ", "_");
+        $('#id_code').val(title)
+    });
+
+    $('#id_code').on('input', ()=>{
+        let title = $('#id_code').val().toUpperCase();
+        let code = title.replaceAll(" ", "_");
+        $('#id_code').val(code)
+    });
+
+
+</script>
+{% endblock %}

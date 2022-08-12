@@ -3,7 +3,7 @@ from django.db import models
 
 DISCOUNT_TYPE_CHOICES = (
     ('1', "%"),
-    ('2', "euro")
+    ('2', "€")
 )
 
 
@@ -19,4 +19,4 @@ class Discount(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f'{self.name}: {self.amount} {self.type} off'
+        return f'{self.name}'
