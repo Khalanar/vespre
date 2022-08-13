@@ -12,3 +12,11 @@ def index(request):
     }
     
     return render(request, "home/index.html", context)
+
+def about_us(request):
+    template = 'home/about-us.html'
+    context = {
+    
+    }
+
+    return render(request, template, context)

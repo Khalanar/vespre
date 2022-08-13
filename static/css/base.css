@@ -97,6 +97,10 @@ img.main-product{
     width:100%;
 }
 
+.image-fill{
+    width:100%;
+}
+
 .table-full{
     width:100%;
     border: 1px solid var(--color-border-soft);
@@ -592,8 +596,17 @@ h6{
 .footer-input input{
     border: 1px solid #ced4da;
     background-color: transparent;
-    color: white;
+    color: var(--color-secondary-text);
     width: auto;
+    font-weight: 300;
+}
+
+.footer-input input:focus{
+    border: 1px solid #ced4da;
+    background-color: transparent;
+    color: var(--color-secondary-text);
+    width: auto;
+    font-weight: 300;
 }
 
 .footer-input a{
