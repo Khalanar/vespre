@@ -24,6 +24,8 @@
 
     --form-placeholder-color: #a2afbb;
 
+    --color-wishlist-elements: red;
+
 }
 
 h1{
@@ -213,14 +215,14 @@ img.main-product{
     transition: all 0.3s;
 }
 
-.product-card .image-wrapper > img:hover
+/* .product-card .image-wrapper > img:hover
 {
     width: 300%;
     left: -100%;
     top: -95%;
-}
+} */
 
-.card-anchor:hover .product-card .image-wrapper > img{
+.card-secondary:hover .product-card .image-wrapper > img{
     width: 300%;
     left: -100%;
     top: -95%;
@@ -315,8 +317,8 @@ img.main-product{
 }
 
 .wishlist i{
-    color:red;
-    font-size: 1.2em;
+    color: var(--color-wishlist-elements);
+    font-size: 1.5em;
 }
 
 .wishlist i:hover{
