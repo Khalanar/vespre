@@ -116,7 +116,7 @@ def checkout(request):
             return redirect(reverse('products'))
 
         current_cart = cart_contents(request)
-        # subtotal = current_cart['subotal']
+
         total_discounted = current_cart['total_discounted']
         total = current_cart['total']
         stripe_total = round(total * 100)
@@ -125,8 +125,6 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-
-        # print(intent)
 
         #  Attempt to prefill the form with any info the user maintains in their profile
         if request.user.is_authenticated:

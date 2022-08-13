@@ -49,6 +49,9 @@ def cart_contents(request):
                 total = subtotal - total_discounted
             else:
                 total = subtotal
+            
+            if total < 0:
+                total = 0
 
     context = {
         'cart_items': cart_items,
