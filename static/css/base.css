@@ -226,6 +226,12 @@ img.main-product{
     top: -95%;
 }
 
+.faux-hover{
+    width: 300%;
+    left: -100%;
+    top: -95%;
+}
+
 .product-card .image-wrapper img{
     overflow: hidden;
 }
@@ -281,6 +287,44 @@ img.main-product{
     position: absolute;
     right: 3px;
     top: 8px;
+}
+
+.top-left {
+    z-index: 1;
+    position: absolute;
+    left: 8px;
+    top: 8px;
+}
+
+.wishlist{
+    left: 30px;
+    top: 15px;
+    background-color:transparent;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.wishlist:focus{
+    background-color:transparent;
+    outline: none !important;
+}
+.wishlist:focus-visible{
+    background-color:transparent;
+    outline: none !important;
+}
+
+.wishlist i{
+    color:red;
+    font-size: 1.2em;
+}
+
+.wishlist i:hover{
+    /* font-size: 2em; */
+}
+
+.wishlist:hover .card-anchor{
+    display: none !important;
 }
 
 .full-price{

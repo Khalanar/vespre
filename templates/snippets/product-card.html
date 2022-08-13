@@ -4,6 +4,16 @@
     <div class="card-secondary h-100 p-2">
 {% endif %}
 
+        {% if request.user.is_authenticated %}
+        <form action="{% url 'add_to_wishlist' product.id %}" method="POST">
+            {% csrf_token %}
+            <button class="top-left wishlist">
+                <!-- <i class="fa-solid fa-heart"></i> -->
+                <i class="fa-regular fa-heart"></i>
+            </button>
+        </form>
+        {% endif %}
+
         <a class="card-anchor" href="{% url 'product_detail' product.id %}">
             <div class="row">
                 <div class="product-card col-12 col-md-{{medium_cols}} col-lg-12">
@@ -13,6 +23,8 @@
                         <div class="top-right">{% include 'snippets/sale-badge.html' with savings=product.savings %}</div>
                         {% endif %}
                         <img src="{{ MEDIA_URL }}{{ product.image }}">{{ MEDIA.URL }}
+                        
+
                         
                     </div>
                 </div>
@@ -32,3 +44,4 @@
         </a>
 
     </div>
+
