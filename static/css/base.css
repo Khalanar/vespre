@@ -17,14 +17,15 @@
     --font-body-weight: 300;
 
     --color-button-accent-1:  #098476;
-    --color-button-accent-2:  #cae14c;
+    --color-button-accent-2:  #07ae84;
 
     --color-border-soft: #dee2e6;
     --rounded-corder-radius: 0.25em;
 
     --form-placeholder-color: #a2afbb;
 
-    --color-wishlist-elements: red;
+    --color-wishlist-elements: #ff4363e3;
+    --color-wishlist-elements-hover: #f38799;
 
 }
 
@@ -86,11 +87,11 @@ hr{
 }
 
 a{
-    color: #098476;
+    color: var(--color-base-accent-1);
 }
 
 a:hover{
-    color: var(--)
+    color: var(--color-button-accent-2)
 }
 
 img.main-product{
@@ -140,6 +141,18 @@ img.main-product{
       rgb(121 147 100) 95%,
       rgb(142 151 75) 100%);
     padding: 4rem 0 4rem;
+}
+
+
+/* Menus */
+
+.dropdown-item:hover{
+    color: var(--color-base-accent-1);
+}
+
+.dropdown-item:active{
+    color: var(--color-secondary-text);
+    background-color: var(--color-base-accent-1);
 }
 
 /* section classes */
@@ -324,7 +337,7 @@ img.main-product{
 
 .wishlist i{
 
-    color: #ff3c00d9;
+    color: var(--color-wishlist-elements);
     font-size: 1.5em;
     border-radius: 50%;
     background-color: #252525;
@@ -339,7 +352,7 @@ img.main-product{
 
 .wishlist i:hover{
     /* font-size: 2em; */
-    color: #ff8e6bd9;
+    color: var(--color-wishlist-elements-hover);
 }
 
 .wishlist:hover .card-anchor{
@@ -699,7 +712,7 @@ h6{
 .discount-info{
     font-size: 0.9em;
     color: var(--color-base-text-2);
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 /* Allauth form formatting */
