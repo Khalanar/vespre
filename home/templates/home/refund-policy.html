@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <h1 class="display-6 logo-font text-black p-3 w-100 text-center">Refund Policy</h1>
+    </div>
+    <div class="row mx-5 mt-0">
+        <div class="col-12 col-md-6 offset-md-3 min-content">
+            <p class="pf-ui-body pf-text-muted">Any claims for misprinted/damaged/defective items must be submitted within 4 weeks after the product has been received. For packages lost in transit, all claims must be submitted no later than 4 weeks after the estimated delivery date. Claims deemed an error on our part are covered at our expense.</p>
+            <p class="pf-ui-body pf-text-muted">If you or your customers notice an issue on the products or anything else on the order,<span>&nbsp;</span><a href="https://help.printful.com/hc/en-us/articles/360014007620-how-do-i-report-a-problem-with-my-order-" target="_blank">please submit a problem report</a>.</p>
+            <p class="pf-ui-body pf-text-muted">The return address is set by default to the Printful facility. When we receive a returned shipment, an automated email notification will be sent to you. Unclaimed returns get donated to charity after 4 weeks. If Printful's facility&nbsp;isn't used as the return address, you would become liable for any returned shipments you receive.</p>
+            <p class="pf-ui-body pf-text-muted"><strong>Wrong Address -</strong><span>&nbsp;</span>If you or your end customer provide an address that is considered insufficient by the courier, the shipment will be returned to our facility. You will be liable for reshipment costs once we have confirmed an updated address with you (if and as applicable).</p>
+            <p class="pf-ui-body pf-text-muted"><strong>Unclaimed -</strong><span>&nbsp;</span>Shipments that go unclaimed are returned to our facility and you will be liable for the cost of a reshipment to yourself or your end customer (if and as applicable).</p>
+            <p class="pf-ui-body pf-text-muted">If you haven't registered an account on<span>&nbsp;</span><a href="https://www.printful.com/" target="_blank">printful.com</a><span>&nbsp;</span>and added a billing method, you hereby agree that any returned orders due to the wrong shipping address or a failure to claim the shipment won’t be available for reshipping and will be donated to charity at your cost (without us issuing a refund).</p>
+            <p class="pf-ui-body pf-text-muted">Printful does not accept returns of sealed goods, such as but not limited to face masks, which are not suitable for return due to health or hygiene reasons. You hereby agree that any returned orders with face masks won’t be available for reshipping and will be disposed of.</p>
+            <p class="pf-ui-body pf-text-muted"><strong>Returned by Customer -</strong><span>&nbsp;</span>It is best to advise your end customers to contact you before returning any products.&nbsp;Except for Customers residing in Brazil,&nbsp;we do not refund orders for buyer’s remorse. Returns for products, face masks, as well as size exchanges are to be offered at your expense and discretion. If you choose to accept returns or offer size exchanges to your end customers, you would need to place a new order at your expense for a face mask or a product in another size.&nbsp;Customers residing in Brazil and regretting a purchase must contact our Customer Service and express their will to return the item within 7 consecutive days after receiving it, providing a picture of the item. The withdrawal request will undergo an evaluation to verify whether the product was used or destroyed, even if partial. In these cases, a refund will not be possible.</p>
+            <p class="pf-ui-body pf-text-muted"><strong>Notification for EU consumers:</strong><span>&nbsp;</span>According to Article 16(c) and (e) of the Directive 2011/83/EU of the European Parliament and of the Council of 25 October 2011 on consumer rights, the right of withdrawal may not be provided for:</p>
+            <p class="pf-ui-body pf-text-muted">1. the supply of goods that are made to the consumer's specifications or are clearly personalized;<br>2. sealed goods which were unsealed after delivery and thus aren't suitable for return due to health protection or hygiene reasons,</p>
+            <p class="pf-ui-body pf-text-muted">therefore Printful reserves rights to refuse returns at its sole discretion.</p>
+            <p class="pf-ui-body pf-text-muted">This Policy shall be governed and interpreted in accordance with the English language, regardless of any translations made for any purpose whatsoever.</p>
+            <p class="pf-ui-body pf-text-muted">For more info on returns,<span>&nbsp;</span><strong>please read our<span>&nbsp;</span><a href="https://help.printful.com/hc/en-us/sections/360004088720-returns" target="_blank">FAQs</a></strong>.&nbsp;</p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

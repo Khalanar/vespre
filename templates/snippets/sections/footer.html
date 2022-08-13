@@ -25,15 +25,15 @@
             <div class="col-12 col-md-6 px-5">
                 <h6>Other resources</h6>
                 <ul>
-                    <li><a href="">Shipping Policy</a></li>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">Refund Policy</a></li>
+                    <li><a href="{% url 'policy_pages' 'shipping-policy' %}">Shipping Policy</a></li>
+                    <li><a href="{% url 'policy_pages' 'privacy-policy' %}">Privacy Policy</a></li>
+                    <li><a href="{% url 'policy_pages' 'refund-policy' %}">Refund Policy</a></li>
                 </ul>
             </div>
             <div class="col-12 col-md-6 px-5">
                 <h6>Want to know more?</h6>
                 <ul>
-                    <li><a href="">About us</a></li>
+                    <li><a href="{% url 'about_us' %}">About us</a></li>
                     <li><a href="https://github.com/Khalanar?tab=repositories" target="_blank">Other projects</a></li>
                     <li>Register to our newsletter!</li>
                     

@@ -15,8 +15,11 @@ def index(request):
 
 def about_us(request):
     template = 'home/about-us.html'
-    context = {
-    
-    }
+    return render(request, template)
 
-    return render(request, template, context)
+def policy_pages(request, template):
+    print(template)
+    template = f'home/{template}.html'
+    return render(request, template)
+
+    
