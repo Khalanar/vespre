@@ -16,7 +16,6 @@ def global_context(request):
         if profile.wishlist.exists():
             wishlist = profile.wishlist.get()
             print('wishlist exists ' + str(profile.wishlist.get()))
-    
         else:
             print('wishlist DOES NOT exist')
     else:
