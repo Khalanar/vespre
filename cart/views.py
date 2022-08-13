@@ -79,7 +79,7 @@ def adjust_cart(request, item_id):
             cart.pop(item_id)
 
     request.session['cart'] = cart
-    messages.success(request, f'Cart successfully modified!')
+    messages.info(request, f'Cart successfully modified!')
 
     return redirect(reverse('view_cart'))
 
@@ -101,7 +101,7 @@ def remove_from_cart(request, item_id):
         else:
             cart.pop(item_id)
 
-        messages.success(request, f'{ product } successfully removed from your cart.')
+        messages.info(request, f'{ product } successfully removed from your cart.')
 
         request.session['cart'] = cart
         return HttpResponse(status=200)

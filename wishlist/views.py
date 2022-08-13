@@ -22,18 +22,18 @@ def toggle_from_wishlist(request, item_id):
         wishlist = profile.wishlist.get()
 
         if product in wishlist.products.all():
-            messages.success(request, f'Removed {product.name} from your wishlist!')
+            messages.info(request, f'Removed {product.name} from your wishlist!')
             wishlist.products.remove(product)
         else:
             wishlist.products.add(product)
-            messages.success(request, f'Added {product.name} to wishlist!')
+            messages.info(request, f'Added {product.name} to wishlist!')
 
     else:
         wishlist = Wishlist(user_profile=profile)
         wishlist.save()
         wishlist.products.add(product)
 
-        messages.success(request, f'Added {product.name} to wishlist!')
+        messages.sucinfocess(request, f'Added {product.name} to wishlist!')
 
     print(redirect_url)
 

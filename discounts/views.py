@@ -33,7 +33,7 @@ def add_discount(request):
         form = DiscountForm(request.POST)
         if form.is_valid():
             discount = form.save()
-            messages.success(request, 'Successfully created a discount!')
+            messages.info(request, 'Successfully created a discount!')
             return redirect(reverse('discounts'))
         else:
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
@@ -66,7 +66,7 @@ def apply_discount(request):
         # cart['discount'] = 10
         # request.session['cart'] = cart
         request.session['discount_id'] = discount.id
-        messages.success(request, f'{discount.code} applied to your bag.')
+        messages.info(request, f'{discount.code} applied to your cart.')
     except Discount.DoesNotExist:
         request.session['discount_id'] = None
         messages.error(request, 'no discount with this code sorry')
