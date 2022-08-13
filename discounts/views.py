@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
 from .models import Discount
-from .forms import DiscountForm
+from .forms import DiscountForm, ApplyDiscountForm
 
 # Create your views here.
 
@@ -47,7 +47,6 @@ def add_discount(request):
 
     return render(request, template, context)
 
-
 @login_required
 def delete_discount(request, discount_id):
     print("DELETING")
@@ -55,3 +54,23 @@ def delete_discount(request, discount_id):
     discount.delete()
     print("DELETING")
     return redirect(reverse('discounts'))
+
+def apply_discount(request): 
+    form = ApplyDiscountForm(request.POST)
+
+
+    try:
+        print(form.data['code'])
+        discount = Discount.objects.get(code=form.data['code'])
+        # cart = request.session.get('cart', {})
+        # cart['discount'] = 10
+        # request.session['cart'] = cart
+        request.session['discount_id'] = discount.id
+        messages.success(request, f'{discount.code} applied to your bag.')
+    except Discount.DoesNotExist:
+        request.session['discount_id'] = None
+        messages.error(request, 'no discount with this code sorry')
+
+
+    # print(discount)
+    return redirect('view_cart')

@@ -581,6 +581,11 @@ h6{
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+.discountForm{
+    display: none;
+}
+
 /* Allauth form formatting */
 
 .allauth-form-inner-content p {

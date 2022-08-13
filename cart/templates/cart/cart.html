@@ -24,7 +24,7 @@
                 {% if cart_items %}
                     <div class="d-block d-md-none">
                         <div class="row">
-                            <div class="col">
+                            <div class="col text-center">
                                 {% include "cart/cart-total.html" %}
                             </div>
                         </div>
@@ -90,12 +90,12 @@
                                 </tr>
                             {% endfor %}
                             <tr>
-                                <td colspan="5" class="pt-5 text-right">
+                                <td colspan="5" class="pt-5 text-center">
                                     {% include "cart/cart-total.html" %}
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="5" class="text-right">
+                                <td colspan="5" class="text-center">
                                     {% include "cart/checkout-buttons.html" %}
                                 </td>
                             </tr>
@@ -127,7 +127,7 @@
 {% include 'snippets/quantity_input_script.html' %}
 
 <script type="text/javascript">
-
+    
     // Update quantity on click
     $('.update-link').click(function(e) {
         var form = $('.update-form');
@@ -151,6 +151,13 @@
              location.reload();
          });
     })
+
+    function showDiscountForm(){
+        $('.discountForm').attr("style", "display:block")
+        $('.discountForm').show()
+        console.log($('#discountForm').attr("style"))
+    }
+
 </script>
 
 {% endblock %}

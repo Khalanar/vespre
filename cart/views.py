@@ -1,12 +1,18 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.contrib import messages
 from products.models import Product
+from discounts.forms import ApplyDiscountForm
 
 
 def view_cart(request):
     """ View that returns the cart page """
+    if request.method == 'GET':
+        form = ApplyDiscountForm()
     
-    return render(request, "cart/cart.html")
+    context = {
+        'form': form,
+    }
+    return render(request, "cart/cart.html", context)
 
 
 def add_to_cart(request, item_id):

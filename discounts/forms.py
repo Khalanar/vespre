@@ -12,3 +12,17 @@ class DiscountForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-primary'
+
+
+class ApplyDiscountForm(forms.ModelForm):
+    """
+    sss
+    """
+    class Meta:
+        model = Discount
+        fields = ('code', )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'border-primary'

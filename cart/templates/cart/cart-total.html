@@ -1,3 +1,27 @@
-<h6><strong>Subtotal: {{ currency_symbol }}{{ total|floatformat:2 }} {{ currency }}</strong></h6>
-<p></p>Discounts: ${{ delivery|floatformat:2 }}</p>
-<h4 class="mt-4">Total: {{ currency_symbol }}{{ total|floatformat:2 }} {{ currency }}</h4>
+<h6><strong>Subtotal: {{ currency_symbol }}{{ subtotal|floatformat:2 }} {{ currency }}</strong></h6>
+<a href="#" onclick="showDiscountForm()">got a discount?</a>
+
+<div class="discountForm">
+    <div class="col-8 offset-2 col-md-4 offset-md-4">
+        <form action="{% url 'apply_discount' %}" method="POST" id="discount-form" class="col s6 right">
+          {% csrf_token %}
+          {% for field in form %}
+            {{ field | as_crispy_field }}
+          {% endfor %}
+          <button class="btn btn-soft" type="submit" name="submit-button" aria-label="Apply Discount">Apply discount
+          </button>
+        </form>
+      </div>
+</div>
+
+{% if discount %}
+<div>
+    <p class="mt-5">Applied <span>{{discount.code}}</span> for {{ discount.amount | floatformat:2 }}{{ discount.get_type_display }} off
+    {% if discount.type == '1' %}
+    Saving you {{ currency_symbol }}{{ total_discounted | floatformat:2 }}{{ currency }}
+    {% endif %}
+    </p>
+</div>
+{% endif %}
+
+<h4 class="mt-4">Total: {{ currency_symbol }}{{ total | floatformat:2 }} {{ currency }}</h4>
