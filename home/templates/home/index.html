@@ -11,10 +11,12 @@
 {% endblock %}
 
 {% block content %}
-
-    {% include 'snippets/sections/featured.html'%}
-    {% include 'snippets/sections/more-by-vespre.html' %}
+<div>
+    <div>{% include 'snippets/sections/featured.html'%}</div>
+    <div>{% include 'snippets/sections/more-by-vespre.html' %}</div>
     <hr>
-    {% include 'snippets/sections/about-our-tees.html' %}
+    <div>{% include 'snippets/sections/about-our-tees.html' %}</div>
+</div>
+
 
 {% endblock %}
