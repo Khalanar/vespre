@@ -22,7 +22,7 @@ def toggle_from_wishlist(request, item_id):
         wishlist = profile.wishlist.get()
 
         if product in wishlist.products.all():
-            messages.success(request, f'Removed {product.name} from!')
+            messages.success(request, f'Removed {product.name} from your wishlist!')
             wishlist.products.remove(product)
         else:
             wishlist.products.add(product)
