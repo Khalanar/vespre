@@ -8,7 +8,7 @@ from profiles.models import UserProfile
 from .models import Wishlist
 
 
-def add_to_wishlist(request, item_id):
+def toggle_from_wishlist(request, item_id):
     """
     Add product to user's wishlist
     """
@@ -21,9 +21,12 @@ def add_to_wishlist(request, item_id):
     if profile.wishlist.exists():
         wishlist = profile.wishlist.get()
 
-        wishlist.products.add(product)
-
-        messages.success(request, f'Added {product.name} to wishlist!')
+        if product in wishlist.products.all():
+            messages.success(request, f'Removed {product.name} from!')
+            wishlist.products.remove(product)
+        else:
+            wishlist.products.add(product)
+            messages.success(request, f'Added {product.name} to wishlist!')
 
     else:
         wishlist = Wishlist(user_profile=profile)
