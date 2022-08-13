@@ -582,8 +582,20 @@ h6{
     overflow-y: auto;
 }
 
+/* Discounts */
+
 .discountForm{
     display: none;
+}
+
+.discount-toggle{
+    font-size: 0.9em;
+}
+
+.discount-info{
+    font-size: 0.9em;
+    color: var(--color-base-text-2);
+    font-style: italic;
 }
 
 /* Allauth form formatting */

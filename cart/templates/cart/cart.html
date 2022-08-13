@@ -90,7 +90,7 @@
                                 </tr>
                             {% endfor %}
                             <tr>
-                                <td colspan="5" class="pt-5 text-center">
+                                <td colspan="5" class="pt-5 text-right">
                                     {% include "cart/cart-total.html" %}
                                 </td>
                             </tr>
@@ -153,9 +153,12 @@
     })
 
     function showDiscountForm(){
-        $('.discountForm').attr("style", "display:block")
-        $('.discountForm').show()
-        console.log($('#discountForm').attr("style"))
+        formEle = $('.discountForm')
+        if (formEle.attr("style") == 'display:block'){
+            formEle.attr("style", "display:none")
+        }else{
+            formEle.attr("style", "display:block")
+        }
     }
 
 </script>

@@ -1,27 +1,32 @@
-<h6><strong>Subtotal: {{ currency_symbol }}{{ subtotal|floatformat:2 }} {{ currency }}</strong></h6>
-<a href="#" onclick="showDiscountForm()">got a discount?</a>
+<div class="row">
+    <div class="col-10 offset-1">
+        <h6>Subtotal: {{ currency_symbol }}{{ subtotal|floatformat:2 }} {{ currency }}</h6>
+        <a href="#" onclick="showDiscountForm()" class="discount-toggle">got a discount?</a>
 
-<div class="discountForm">
-    <div class="col-8 offset-2 col-md-4 offset-md-4">
-        <form action="{% url 'apply_discount' %}" method="POST" id="discount-form" class="col s6 right">
-          {% csrf_token %}
-          {% for field in form %}
-            {{ field | as_crispy_field }}
-          {% endfor %}
-          <button class="btn btn-soft" type="submit" name="submit-button" aria-label="Apply Discount">Apply discount
-          </button>
-        </form>
-      </div>
+        <div class="discountForm">
+            <div class="col-8 offset-2 col-md-4 offset-md-8 px-0">
+                <form action="{% url 'apply_discount' %}" method="POST" id="discount-form" class="offset-6 col-6 text-right px-0">
+                {% csrf_token %}
+                {% for field in form %}
+                    {{ field | as_crispy_field }}
+                {% endfor %}
+                <button class="btn btn-soft" type="submit" name="submit-button" aria-label="Apply Discount">Apply discount
+                </button>
+                </form>
+            </div>
+        </div>
+
+        {% if discount %}
+        <div>
+            <p class="mb-0 mt-2">
+                <span class="discount-info">{{discount.code}} - {{ discount.amount | floatformat:2 }}{{ discount.get_type_display }} off</span>
+            </p>
+            <p>
+                <strong>Savings: {{ currency_symbol }}{{ total_discounted | floatformat:2 }}{{ currency }}</strong>
+            </p>
+        </div>
+        {% endif %}
+
+        <h4 class="mt-4">Total: {{ currency_symbol }}{{ total | floatformat:2 }} {{ currency }}</h4>
+    </div>
 </div>
-
-{% if discount %}
-<div>
-    <p class="mt-5">Applied <span>{{discount.code}}</span> for {{ discount.amount | floatformat:2 }}{{ discount.get_type_display }} off
-    {% if discount.type == '1' %}
-    Saving you {{ currency_symbol }}{{ total_discounted | floatformat:2 }}{{ currency }}
-    {% endif %}
-    </p>
-</div>
-{% endif %}
-
-<h4 class="mt-4">Total: {{ currency_symbol }}{{ total | floatformat:2 }} {{ currency }}</h4>
