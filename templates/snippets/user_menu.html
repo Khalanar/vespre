@@ -1,7 +1,7 @@
 {% if request.user.is_authenticated %}
 {% if request.user.is_superuser %}
 <a href="{% url 'discounts' %}" class="dropdown-item">Discounts</a>
-<a href="{% url 'add_product' %}" class="dropdown-item">Products</a>
+<a href="{% url 'add_product' %}" class="dropdown-item">Add product</a>
 {% endif %}
 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>

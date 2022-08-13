@@ -55,6 +55,7 @@ class Product(models.Model):
             return 'no savings'
 
     def save(self, *args, **kwargs):
-        self.update_rating()
+        
         super().save(*args, **kwargs)
         print("product is saving")
+        self.update_rating()
