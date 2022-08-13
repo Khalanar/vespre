@@ -7,6 +7,7 @@ from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
 
 from products.models import Product
+from discounts.models import Discount
 from cart.contexts import cart_contents
 
 from .forms import OrderForm
@@ -42,6 +43,13 @@ def checkout(request):
 
         cart = request.session.get('cart', {})
 
+        discount_id = request.session.get('discount_id')
+        if discount_id:
+            discount = get_object_or_404(Discount, pk=discount_id)
+
+        else:
+            discount = None
+
         form_data = {
             'full_name': request.POST['full_name'],
             'email': request.POST['email'],
@@ -61,6 +69,10 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
+            if discount:
+                order.save_discount(discount)
+            else:
+                order.discount = None
             order.save()
             for item_id, item_data in cart.items():
                 try:
@@ -104,6 +116,8 @@ def checkout(request):
             return redirect(reverse('products'))
 
         current_cart = cart_contents(request)
+        # subtotal = current_cart['subotal']
+        total_discounted = current_cart['total_discounted']
         total = current_cart['total']
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key

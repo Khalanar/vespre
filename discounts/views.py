@@ -58,13 +58,9 @@ def delete_discount(request, discount_id):
 def apply_discount(request): 
     form = ApplyDiscountForm(request.POST)
 
-
     try:
         print(form.data['code'])
         discount = Discount.objects.get(code=form.data['code'])
-        # cart = request.session.get('cart', {})
-        # cart['discount'] = 10
-        # request.session['cart'] = cart
         request.session['discount_id'] = discount.id
         messages.info(request, f'{discount.code} applied to your cart.')
     except Discount.DoesNotExist:

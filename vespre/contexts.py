@@ -9,6 +9,7 @@ def global_context(request):
     featured_products = []
 
     products = Product.objects.all()
+    wishlist = None
 
     if request.user.is_authenticated:
         profile = get_object_or_404(UserProfile, user=request.user)
@@ -18,7 +19,6 @@ def global_context(request):
     
         else:
             print('wishlist DOES NOT exist')
-            wishlist = None
     else:
         print('user not authed')
 

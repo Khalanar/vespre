@@ -8,6 +8,10 @@ from django_countries.fields import CountryField
 
 from products.models import Product
 from profiles.models import UserProfile
+from discounts.models import Discount
+
+from cart.contexts import cart_contents
+
 
 
 class Order(models.Model):
@@ -26,6 +30,7 @@ class Order(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    discount = models.ForeignKey(Discount, null=True, blank=True, on_delete=models.SET_NULL)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
@@ -38,6 +43,13 @@ class Order(models.Model):
         """
         return uuid.uuid4().hex.upper()
 
+    def save_discount(self, discount):
+        """
+        Saves discount to order
+        """
+        self.discount = discount
+        self.save()
+
     def update_total(self):
         """
         Update grand total each time a line item is added,
@@ -48,7 +60,22 @@ class Order(models.Model):
         #     self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
         # else:
         self.delivery_cost = 0
-        self.grand_total = self.order_total
+        # self.discount_total = cart_contents(request)
+
+
+        if self.discount:
+            if self.discount.type == '1':
+                total_discounted = (self.order_total * self.discount.amount / 100)
+            elif self.discount.type == '2':
+                total_discounted = self.discount.amount
+
+            total = self.order_total - total_discounted
+        else:
+            total = self.order_total
+
+
+
+        self.grand_total = total
         self.save()
 
     def save(self, *args, **kwargs):
