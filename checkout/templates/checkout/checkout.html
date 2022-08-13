@@ -61,13 +61,13 @@
                 <div class="row text-black text-right">
                     <div class="col-7 offset-2">
                         <p class="my-0">Order Total:</p>
-                        <p class="my-0">Delivery:</p>
-                        <p class="my-0">Grand Total:</p>
+                        <p class="my-0">Discount:</p>
+                        <p class="my-0 mt-3">Grand Total:</p>
                     </div>
                     <div class="col-3">
-                        <p class="my-0">{{ currency_symbol }}{{ total | floatformat:2 }} {{ currency }}</p>
-                        <p class="my-0">{{ currency_symbol }}{{ delivery | floatformat:2 }} {{ currency }}</p>
-                        <p class="my-0"><strong>{{ currency_symbol }}{{ total | floatformat:2 }} {{ currency }}</strong></p>
+                        <p class="my-0">{{ currency_symbol }}{{ subtotal | floatformat:2 }} {{ currency }}</p>
+                        <p class="my-0">{{ currency_symbol }}{{ total_discounted | floatformat:2 }} {{ currency }}</p>
+                        <p class="my-0 mt-3"><strong>{{ currency_symbol }}{{ total | floatformat:2 }} {{ currency }}</strong></p>
                     </div>
                 </div>
             </div>
