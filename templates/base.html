@@ -142,6 +142,11 @@
                 //     console.log($('this').next())
                 // })
 
+                $('.card-secondary').on('mouseenter mouseleave', function(e){
+                    $(this).find('.fa-regular').toggleClass('d-none')
+                    console.log('mousenter, try now')
+                })
+
             </script>
 
         {% endblock %}
