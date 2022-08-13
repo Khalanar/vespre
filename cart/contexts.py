@@ -1,7 +1,7 @@
-from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 from discounts.models import Discount
+
 
 def cart_contents(request):
     cart_items = []
@@ -9,13 +9,11 @@ def cart_contents(request):
     total = 0
     total_discounted = 0
     discount_id = request.session.get('discount_id')
+
     if discount_id:
         discount = Discount.objects.get(pk=discount_id)
     else:
         discount = False
-    
-
-    
 
     product_count = 0
     cart = request.session.get('cart', {})
@@ -41,16 +39,13 @@ def cart_contents(request):
                     'product': product,
                     'size': size,
                 })
-            
 
-            
-            
             if discount:
                 if discount.type == '1':
                     total_discounted = (subtotal * discount.amount / 100)
                 elif discount.type == '2':
                     total_discounted = discount.amount
-            
+
                 total = subtotal - total_discounted
             else:
                 total = subtotal
