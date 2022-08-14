@@ -14,10 +14,6 @@
 
     <div id="section-featured">
         <div class="container-fluid container col-12">
-            <!-- <div class="row">
-                <h1 class="display-4 logo-font text-black p-3 w-100 text-center">{{ product }}</h1>
-            </div> -->
-            
             <div class="row pt-5 mb-5">
                 <div class="col-12 col-md-6 col-lg-7">
                     <img class="main-product" src="{{ MEDIA_URL }}{{ product.image }}">
@@ -83,9 +79,7 @@
                                     <label for="size-l">L</label>
                                     <input type="radio" id="size-xl" name="product_size" value="xl" >
                                     <label for="size-xl">XL</label>
-                                    
                                 </fieldset>
-      
                             </div>
                             {% endif %}
 
@@ -101,14 +95,12 @@
                         {% include 'snippets/rating.html' with override_text_alignment='text-left' show_link=True%}
                     </div>
                     <div class="px-3 mt-3">
-                        <!-- {% autoescape off %}{{ product.description }}{% endautoescape %} -->
                         {% include 'snippets/tee-general-info.html' %}
                         {% include 'snippets/size-chart.html' %}
                     </div>
-    
                 </div>
-
             </div>
+            
             <div id="reviews" class="row">
                 <div class="col-12">
                     {% if reviews %}
@@ -120,13 +112,14 @@
                     {% endif %}
                 </div>
             </div>
-
         </div>
     </div>
 
 {% endblock %}
 
 {% block postloadjs %}
-{{ block.super }}
-{% include 'snippets/quantity_input_script.html' %}
+
+    {{ block.super }}
+    {% include 'snippets/quantity_input_script.html' %}
+
 {% endblock %}

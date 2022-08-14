@@ -7,9 +7,7 @@
         {% if request.user.is_authenticated %}
         <form action="{% url 'toggle_from_wishlist' product.id %}" method="POST">
             {% csrf_token %}
-            <button class="top-left wishlist">
-                <!-- <i class="fa-solid fa-heart"></i> -->
-                
+            <button class="top-left wishlist">                
                 {% if product in wishlist.products.all %}
                 <i class="fa-solid fa-heart"></i>
                 {% else %}
@@ -28,9 +26,6 @@
                         <div class="top-right">{% include 'snippets/sale-badge.html' with savings=product.savings %}</div>
                         {% endif %}
                         <img src="{{ MEDIA_URL }}{{ product.image }}">{{ MEDIA.URL }}
-                        
-
-                        
                     </div>
                 </div>
                 <div class="col-12 col-md-{{medium_cols}} col-lg-12 mt-1 mt-lg-4">
@@ -47,6 +42,5 @@
                 </div>
             </div>
         </a>
-
     </div>
 

@@ -3,37 +3,35 @@
 
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 
 {% block content %}
 
-    <div id="section-featured">
-        <div class="container-fluid">
-            <div class="row">
-                <h1 class="display-4 logo-font text-black p-3 w-100 text-center">All Vespre Tees</h1>
-            </div>
-    
-            <div class="row">
-                <div class="product-container col-10 offset-1">
-                    <div class="row mt-1 mb-2">
-                        {% for product in products %}
-                        <div class="col-6 col-lg-4 col-xl-3 mt-3">
-                            <div class="border-0">
-                                {% include 'snippets/product-card.html' with product=product card=false medium_cols=12 %}
-                            </div>
+<div id="section-featured">
+    <div class="container-fluid">
+        <div class="row">
+            <h1 class="display-4 logo-font text-black p-3 w-100 text-center">All Vespre Tees</h1>
+        </div>
+
+        <div class="row">
+            <div class="product-container col-10 offset-1">
+                <div class="row mt-1 mb-2">
+                    {% for product in products %}
+                    <div class="col-6 col-lg-4 col-xl-3 mt-3">
+                        <div class="border-0">
+                            {% include 'snippets/product-card.html' with product=product card=false medium_cols=12 %}
                         </div>
-                    {% endfor %}
                     </div>
+                    {% endfor %}
                 </div>
             </div>
-
         </div>
     </div>
+</div>
 
 {% endblock %}
-
