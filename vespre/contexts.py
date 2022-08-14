@@ -15,9 +15,7 @@ def global_context(request):
         profile = get_object_or_404(UserProfile, user=request.user)
         if profile.wishlist.exists():
             wishlist = profile.wishlist.get()
-        else:
-    else:
-
+ 
     for product in products:
         if product.is_discounted():
             featured_products.append(product)

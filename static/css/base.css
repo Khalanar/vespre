@@ -715,6 +715,10 @@ h6{
     /* font-style: italic; */
 }
 
+.discount-header{
+    font-weight: 500;
+}
+
 /* Allauth form formatting */
 
 .allauth-form-inner-content p {
