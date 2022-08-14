@@ -3,12 +3,18 @@ from .models import Order
 
 
 class OrderForm(forms.ModelForm):
+    """
+    Form used to create Orders
+    """
     class Meta:
+        """
+        Sets basic behaviour for the form
+        """
         model = Order
         fields = ('full_name', 'email', 'phone_number',
-                    'street_address1', 'street_address2',
-                    'town_or_city', 'postcode', 'country',
-                    'county',)
+                  'street_address1', 'street_address2',
+                  'town_or_city', 'postcode', 'country',
+                  'county',)
 
     def __init__(self, *args, **kwargs):
         """

@@ -10,6 +10,9 @@ from discounts.models import Discount
 
 
 class Order(models.Model):
+    """
+    Model for Orders
+    """
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                      null=True, blank=True,
@@ -81,10 +84,16 @@ class Order(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
+        """
+        Return the model in string format
+        """
         return self.order_number
 
 
 class OrderLineItem(models.Model):
+    """
+    Model for Order line items that are added to orders
+    """
     order = models.ForeignKey(Order, null=False, blank=False,
                               on_delete=models.CASCADE, 
                               related_name='lineitems')
@@ -105,4 +114,7 @@ class OrderLineItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
+        """
+        Return the model in string format
+        """
         return f'SKU { self.product.sku } on order { self.order.order_number }'

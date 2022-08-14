@@ -16,10 +16,11 @@ from .forms import OrderForm
 from .models import Order, OrderLineItem
 
 
-
-
 @require_POST
 def cache_checkout_data(request):
+    """
+    Cache checkout data on successful post
+    """
     try:
         pid = request.POST.get('client_secret').split('_secret')[0]
         stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -30,13 +31,16 @@ def cache_checkout_data(request):
         })
         return HttpResponse(status=200)
 
-    except Exception as e:
+    except Exception as err:
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
-        return HttpResponse(content=e, status=400)
+        return HttpResponse(content=err, status=400)
 
 
 def checkout(request):
+    """
+    Handle all checkout events like creating order, processing payment, etc
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -84,37 +88,40 @@ def checkout(request):
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for s, quantity in item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
                                 quantity=quantity,
-                                product_size=size,
+                                product_size=s,
                             )
                             order_line_item.save()
+                            
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your cart wasn't found in our database. "
-                        "Please call us for assistance!")
+                        "Oops somethign went wrong, one of the products\
+                        in your cart no longer seems to exist\
+                        Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('view_cart'))
 
             # Save the info to the user's profile if all is well
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                                    args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
     else:
         cart = request.session.get('cart', {})
         if not cart:
-            messages.error(request, "There's nothing in your cart at the moment")
+            messages.error(request, 
+                           "There's nothing in your cart at the moment")
             return redirect(reverse('products'))
 
         current_cart = cart_contents(request)
 
-        total_discounted = current_cart['total_discounted']
         total = current_cart['total']
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
@@ -123,7 +130,7 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY,
         )
 
-        #  Attempt to prefill the form with any info the user maintains in their profile
+        #  Attempt to fill form with user address info
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
