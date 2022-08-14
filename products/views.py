@@ -1,8 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-
 from django.contrib.auth.decorators import login_required
-
 from django.db.models import Q
 from django.db.models.functions import Lower
 
@@ -11,22 +9,19 @@ from .forms import ProductForm
 
 
 def all_products(request):
-    """ View to return all products, sorting and search queries """
+    """
+    View to return all products, sorting and search queries
+    """
 
     products = Product.objects.all()
     query = None
     sort = None
     direction = None
-    max_rating = [0, 1, 2, 3, 4]
 
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
-
-            # if sort == 'rating':
-            #     for product in products:
-            #         product.update_rating()
 
             if sortkey == 'name':
                 sortkey == 'lower_name'
@@ -37,14 +32,12 @@ def all_products(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             
-
-
             products = products.order_by(sortkey)
 
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error("Type something in the search bar!")
+                messages.error(request, "Type something in the search bar!")
                 return redirect(reverse('products'))
 
             if query == 'discounted':
@@ -69,10 +62,10 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    """ View that returns one product by its ID """
+    """
+    View that returns one product by id
+    """
     product = get_object_or_404(Product, pk=product_id)
-    max_rating = [0, 1, 2, 3, 4]
-
     reviews = product.reviews.all()
 
     context = {
@@ -82,9 +75,12 @@ def product_detail(request, product_id):
 
     return render(request, 'products/product_detail.html', context)
 
+
 @login_required
 def add_product(request):
-    """ Add a product to the store """
+    """
+    Add a product to the store
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -96,7 +92,8 @@ def add_product(request):
             messages.info(request, 'Successfully added product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add product.\
+                           Please ensure the form is valid.')
     else:
         form = ProductForm()
         
@@ -123,7 +120,8 @@ def edit_product(request, product_id):
             messages.info(request, 'Successfully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update product.\
+                           Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.name}')

@@ -40,7 +40,8 @@ class Product(models.Model):
 
     def is_discounted(self):
         '''
-        Returns true if the product's price is lower than the product's compare_at_price
+        Returns true if the product's price is lower than 
+        the product's compare_at_price
         '''
         if self.compare_at_price != 0:
             return self.price < self.compare_at_price
