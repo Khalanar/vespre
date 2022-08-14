@@ -49,17 +49,14 @@ def add_discount(request):
 
 @login_required
 def delete_discount(request, discount_id):
-    print("DELETING")
     discount = get_object_or_404(Discount, pk=discount_id)
     discount.delete()
-    print("DELETING")
     return redirect(reverse('discounts'))
 
 def apply_discount(request): 
     form = ApplyDiscountForm(request.POST)
 
     try:
-        print(form.data['code'])
         discount = Discount.objects.get(code=form.data['code'])
         request.session['discount_id'] = discount.id
         messages.info(request, f'{discount.code} applied to your cart.')
@@ -67,6 +64,4 @@ def apply_discount(request):
         request.session['discount_id'] = None
         messages.error(request, 'no discount with this code sorry')
 
-
-    # print(discount)
     return redirect('view_cart')

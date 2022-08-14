@@ -35,6 +35,4 @@ def toggle_from_wishlist(request, item_id):
 
         messages.sucinfocess(request, f'Added {product.name} to wishlist!')
 
-    print(redirect_url)
-
     return redirect(request.META['HTTP_REFERER'])

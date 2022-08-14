@@ -15,11 +15,8 @@ def global_context(request):
         profile = get_object_or_404(UserProfile, user=request.user)
         if profile.wishlist.exists():
             wishlist = profile.wishlist.get()
-            print('wishlist exists ' + str(profile.wishlist.get()))
         else:
-            print('wishlist DOES NOT exist')
     else:
-        print('user not authed')
 
     for product in products:
         if product.is_discounted():

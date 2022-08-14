@@ -18,7 +18,6 @@ def about_us(request):
     return render(request, template)
 
 def policy_pages(request, template):
-    print(template)
     template = f'home/{template}.html'
     return render(request, template)
 
