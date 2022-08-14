@@ -1,9 +1,6 @@
 from django.db import models
 from django.db.models.signals import post_save
-# from reviews.models import Review
 
-#FOR TESTING PURPOSES ONLY
-import random
 
 class Product(models.Model):
     ''' Model for product objects '''
@@ -19,11 +16,15 @@ class Product(models.Model):
 
 
     def __str__(self):
+        """
+        return object as a string
+        """
         return str(self.name.replace('VESPRE ', '').replace(' Tee', ''))
 
     def update_rating(self):
-        ''' Get the average rating for this product '''
-
+        '''
+        Get the average rating for this product
+        '''
         rating_sum = 0
         reviews_count = 0
         _rating = 0
@@ -35,17 +36,21 @@ class Product(models.Model):
         _rating = rating_sum / reviews_count if reviews_count > 0 else -1
         self.rating = _rating
 
-        # self.save()
+        self.save()
 
     def is_discounted(self):
-        ''' Returns true if the product's price is lower than the product's compare_at_price '''
+        '''
+        Returns true if the product's price is lower than the product's compare_at_price
+        '''
         if self.compare_at_price != 0:
             return self.price < self.compare_at_price
         
         return False
 
     def savings(self):
-        ''' Returns savings in % '''
+        '''
+        Returns savings in %
+        '''
         if self.is_discounted():
             
             return str(100 - int(self.price * 100 / self.compare_at_price))
@@ -53,6 +58,7 @@ class Product(models.Model):
             return 'no savings'
 
     def save(self, *args, **kwargs):
-        
+        """
+        Overwrite save method, currently just calling super
+        """
         super().save(*args, **kwargs)
-        self.update_rating()

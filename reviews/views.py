@@ -11,10 +11,10 @@ def add_review(request, product_id):
     if request.POST:
         form = ReviewForm(request.POST, request.FILES)
         if form.is_valid():
-            product = form.save()
-            messages.success(request, 'Successfully added review!')
+            review = form.save()
+            messages.info(request, 'Successfully added review!')
+            product.update_rating()
 
-            # return redirect(reverse('product_detail', args=[product.id]))
             return redirect(reverse('home'))
     else:
         form = ReviewForm(initial={'product': product_id})
