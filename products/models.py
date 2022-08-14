@@ -28,8 +28,6 @@ class Product(models.Model):
         reviews_count = 0
         _rating = 0
 
-        print(f'Updating rating for {self.name}')
-
         for review in self.reviews.all():
             reviews_count += 1
             rating_sum += review.rating
@@ -57,5 +55,4 @@ class Product(models.Model):
     def save(self, *args, **kwargs):
         
         super().save(*args, **kwargs)
-        print("product is saving")
         self.update_rating()
