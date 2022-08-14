@@ -6,11 +6,12 @@ from django.contrib import messages
 from .models import Discount
 from .forms import DiscountForm, ApplyDiscountForm
 
-# Create your views here.
 
 @login_required
 def discounts(request):
-
+    """
+    View all currently existing discounts
+    """
     discounts = Discount.objects.all()
 
     template = 'discounts/discounts.html'
@@ -22,9 +23,12 @@ def discounts(request):
 
     return render(request, template, context)
 
+
 @login_required
 def add_discount(request):
-    """ Add a new discount """
+    """
+    Add a new discount
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
@@ -36,7 +40,8 @@ def add_discount(request):
             messages.info(request, 'Successfully created a discount!')
             return redirect(reverse('discounts'))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to add product.\
+                           Please ensure the form is valid.')
     else:
         form = DiscountForm()
         
@@ -47,13 +52,21 @@ def add_discount(request):
 
     return render(request, template, context)
 
+
 @login_required
 def delete_discount(request, discount_id):
+    """
+    Delete specified discount
+    """
     discount = get_object_or_404(Discount, pk=discount_id)
     discount.delete()
     return redirect(reverse('discounts'))
 
+
 def apply_discount(request): 
+    """
+    Check if discount exists and save it into session
+    """
     form = ApplyDiscountForm(request.POST)
 
     try:

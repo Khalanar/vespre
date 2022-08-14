@@ -20,7 +20,6 @@
                     <div class="col-12">
                         <a href="{% url 'add_discount' %}" class="btn btn-soft">Create discount</a>
                     </div>
-
                 </div>
                 <div class="row code-header mt-5 mb-2 discount-header">
                     <div class="col-4 col-md-3 offset-md-2">
@@ -33,11 +32,10 @@
                         Value
                     </div>
                     <div class="col-1 col-md-1">
-
                     </div>
                 </div>
-                {% for discount in discounts %}
 
+                {% for discount in discounts %}
                 <div class="row code-row">
                     <div class="col-4 col-md-3 offset-md-2">
                         {{ discount }}
@@ -55,14 +53,10 @@
                     </div>
                 </div>
                 {% endfor %}
+
                 <hr>
             </div>
         </div>
 
     </div>
-{% endblock %}
-
-{% block postloadjs %}
-
-
 {% endblock %}

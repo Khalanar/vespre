@@ -3,7 +3,9 @@ from .models import Discount
 
 
 class DiscountForm(forms.ModelForm):
-
+    """
+    Form for addming a new discount in the system
+    """
     class Meta:
         model = Discount
         fields = '__all__'
@@ -16,7 +18,7 @@ class DiscountForm(forms.ModelForm):
 
 class ApplyDiscountForm(forms.ModelForm):
     """
-    sss
+    Form to check if code exists in database
     """
     class Meta:
         model = Discount
