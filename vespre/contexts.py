@@ -5,7 +5,9 @@ from profiles.models import UserProfile
 
 
 def global_context(request):
-
+    """
+    Context used to pass certain global variables around the store
+    """
     featured_products = []
 
     products = Product.objects.all()
@@ -23,7 +25,7 @@ def global_context(request):
     currency_symbol = settings.CURRENCY_SYMBOL
     currency = settings.CURRENCY
 
-    max_rating = [0,1,2,3,4]
+    max_rating = [0, 1, 2, 3, 4]
 
     context = {
         'featured_products': featured_products,

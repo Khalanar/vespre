@@ -41,7 +41,6 @@ CSRF_TRUSTED_ORIGINS = ['https://8000-khalanar-vespre-wbfchs5rflz.ws-eu59.gitpod
                         'https://vespre.herokuapp.com']
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
