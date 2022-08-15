@@ -33,7 +33,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 ALLOWED_HOSTS = ['localhost', 'vespre.herokuapp.com',
                  '8000-khalanar-vespre-wbfchs5rflz.ws-eu59.gitpod.io',
                  '8000-khalanar-vespre-wbfchs5rflz.ws-eu60.gitpod.io',
-                 '8000-khalanar-vespre-wbfchs5rflz.ws-eu61.gitpod.io'],
+                 '8000-khalanar-vespre-wbfchs5rflz.ws-eu61.gitpod.io']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-khalanar-vespre-wbfchs5rflz.ws-eu59.gitpod.io',
                         'https://8000-khalanar-vespre-wbfchs5rflz.ws-eu60.gitpod.io',
