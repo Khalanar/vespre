@@ -25,5 +25,7 @@ class Review(models.Model):
         return f'Reviewed by {self.name} on {self.date_created}'
 
     def save(self, *args, **kwargs):
+        """
+        Overwrite super's save method
+        """
         super().save(*args, **kwargs)
-        # self.product.save()

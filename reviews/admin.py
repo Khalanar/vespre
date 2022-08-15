@@ -3,6 +3,9 @@ from .models import Review
 
 
 class ReviewAdmin(admin.ModelAdmin):
+    """
+    Class to display reviews in django admin
+    """
     list_display = (
         'rating',
         'comment',
@@ -12,5 +15,6 @@ class ReviewAdmin(admin.ModelAdmin):
     )
 
     ordering = ('-date_created',)
+
 
 admin.site.register(Review, ReviewAdmin)
