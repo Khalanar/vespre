@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="product-container col-12 col-md-10 offset-md-1">
+        <div class="row mt-1 mb-2 p-2">
+            {% for product in products %}
+            <div class="col-6 col-lg-4 col-xl-3 mt-3 p-0">
+                <div class="border-0">
+                    {% include 'snippets/product-card.html' with product=product card=false medium_cols=12 %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -140,7 +140,7 @@ img.main-product{
       rgb(65 125 114) 80%,
       rgb(121 147 100) 95%,
       rgb(142 151 75) 100%);
-    padding: 4rem 0 4rem;
+    padding: 1rem 0 1rem;
 }
 
 
@@ -211,6 +211,10 @@ img.main-product{
         var(--rounded-corder-radius)
         0px
         !important;
+}
+
+.product-card{
+    padding: 0px 15px;
 }
 
 .product-card .image-wrapper
@@ -766,6 +770,23 @@ h6{
 
 }
 
-@media (max-width: 768px){
+@media (min-width: 768px){
+    .background-gradient{
+        padding: 4rem 0 4rem 0;
+    }
 
+    .product-card{
+        padding: 0px 25px;
+    }
+}
+
+@media (max-width: 576px){
+    .product-card .image-wrapper > img{
+        width: 300%;
+        aspect-ratio: 1;
+        position: relative;
+        left: -100%;
+        top: -90%;
+        transition: all 0.3s;
+    }
 }
