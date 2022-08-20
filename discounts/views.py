@@ -44,7 +44,7 @@ def add_discount(request):
                            Please ensure the form is valid.')
     else:
         form = DiscountForm()
-        
+
     template = 'discounts/add_discount.html'
     context = {
         'form': form,
@@ -63,7 +63,7 @@ def delete_discount(request, discount_id):
     return redirect(reverse('discounts'))
 
 
-def apply_discount(request): 
+def apply_discount(request):
     """
     Check if discount exists and save it into session
     """

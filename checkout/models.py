@@ -63,7 +63,8 @@ class Order(models.Model):
 
         if self.discount:
             if self.discount.type == '1':
-                total_discounted = (self.order_total * self.discount.amount / 100)
+                total_discounted = (self.order_total *
+                                    self.discount.amount / 100)
             elif self.discount.type == '2':
                 total_discounted = self.discount.amount
 
@@ -95,14 +96,14 @@ class OrderLineItem(models.Model):
     Model for Order line items that are added to orders
     """
     order = models.ForeignKey(Order, null=False, blank=False,
-                              on_delete=models.CASCADE, 
+                              on_delete=models.CASCADE,
                               related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False,
                                 on_delete=models.CASCADE)
     product_size = models.CharField(max_length=2, null=True, blank=True)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2,
-                                         null=False, blank=False, 
+                                         null=False, blank=False,
                                          editable=False)
 
     def save(self, *args, **kwargs):

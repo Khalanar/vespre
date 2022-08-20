@@ -54,22 +54,22 @@
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript">
-        productField = document.getElementById('div_id_product')
-        productField.style.display = 'none'
+        var productField = document.getElementById('div_id_product');
+        productField.style.display = 'none';
 
-        checkboxes = document.getElementsByName('rating')
+        var checkboxes = document.getElementsByName('rating');
 
         for (let i=0; i<checkboxes.length; i++){
             checkboxes[i].addEventListener('click', (event)=>{
                 //reset all checkboxes
                 for (let j=0; j<checkboxes.length; j++){
-                    checkboxes[j].checked = false
+                    checkboxes[j].checked = false;
                 }
 
                 for(let j=0; j<event.target.value; j++){
-                    checkboxes[j].checked = true
+                    checkboxes[j].checked = true;
                 }
-            })
+            });
         }
 
     </script>

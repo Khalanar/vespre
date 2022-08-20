@@ -285,7 +285,7 @@ Both accounts exist as part of Vespre's social media strategy previous to this p
 
 # Validation
 
-All rendered html pages have been validated through [W3C Markup Validation Service](https://validator.w3.org/)
+> All rendered html pages have been validated through [W3C Markup Validation Service](https://validator.w3.org/)
 
 |  HTML  |  Comments  |  Status  |
 | --- | --- | --- |
@@ -307,8 +307,38 @@ All rendered html pages have been validated through [W3C Markup Validation Servi
 | Checkout |  | &#10003; |
 | Order confirmation | Ignore empty header warning | &#10003; |
 
+> All CSS was passed through [W3C CSS Validator - Jigsaw](https://jigsaw.w3.org/css-validator/)
+
 |  CSS  |  Comments  |  Status  |
 | --- | --- | --- |
+| base.css |  | &#10003; |
+
+> All JS was validated through [JSHint](https://jshint.com/)
+
+|  JS  |  Comments  |  Status  |
+| --- | --- | --- |
+| base |   | &#10003; |
+| email |   | &#10003; |
+| cart | Fixed end of line semicolon issues | &#10003; |
+| add_discount | Fixed end of line semicolon issues | &#10003; |
+| add_product |  | &#10003; |
+| edit_product |  | &#10003; |
+| quantity_input_script |  | &#10003; |
+| add_review | Fixed end of line semicolon issues and specifically declare variables | &#10003; |
+
+> All Python files were validated through VSCode linter and [Pep8 Online](http://pep8online.com/)
+
+For the sake of brevety and to avoid duplications, main pep8 issues have been listed below
+
+|  Python  |  Comments  |  Status  |
+| --- | --- | --- |
+| All files | Classes created for the project have docstrings (django defaults have been left as they are) | &#10003; |
+|  | Relevant classes have docstrings | &#10003; |
+|  | 2 blank lines before classes | &#10003; |
+|  | Long lines have been split | &#10003; |
+|  | All blank lines have beeb checked so as to not have blank spaces | &#10003; |
+|  | Files end with extra line without blank space | &#10003; |
+|  | Ignored long line errors in webhook_handler.py as there is no way to split this line | &#10003; |
 
 # Testing
 # Future plans

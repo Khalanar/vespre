@@ -3,6 +3,9 @@ from .models import Discount
 
 
 class DiscountAdmin(admin.ModelAdmin):
+    """
+    Class to create the view for discounts in the django admin
+    """
     list_display = (
         'name',
         'code',
@@ -12,7 +15,7 @@ class DiscountAdmin(admin.ModelAdmin):
         'date_created',
     )
     prepopulated_fields = {'code': ('name',)}
-    
+
     ordering = ('-date_created',)
 
 admin.site.register(Discount, DiscountAdmin)

@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (render, redirect, reverse,
+                              get_object_or_404, HttpResponse)
 from django.contrib import messages
 from products.models import Product
 from discounts.forms import ApplyDiscountForm
@@ -8,7 +9,7 @@ def view_cart(request):
     """ View that returns the cart page """
     if request.method == 'GET':
         form = ApplyDiscountForm()
-    
+
     context = {
         'form': form,
     }
@@ -55,7 +56,8 @@ def add_to_cart(request, item_id):
 
 def adjust_cart(request, item_id):
     """
-    View to adjust the quantity of the specified product by the specified amount
+    View to adjust the quantity of the specified
+    product by the specified amount
     """
 
     product = get_object_or_404(Product, pk=item_id)
@@ -103,7 +105,8 @@ def remove_from_cart(request, item_id):
         else:
             cart.pop(item_id)
 
-        messages.info(request, f'{ product } successfully removed from your cart.')
+        messages.info(request, f'{ product } successfully\
+                      removed from your cart.')
 
         request.session['cart'] = cart
         return HttpResponse(status=200)

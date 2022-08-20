@@ -133,7 +133,7 @@
         var form = $('.update-form');
 
         form.submit();
-    })
+    });
 
     // Remove item and reload on click
     $('.remove-item').click(function(e) {
@@ -147,14 +147,14 @@
          .done(function() {
              location.reload();
          });
-    })
+    });
 
     function showDiscountForm(){
-        formEle = $('.discountForm')
+        let formEle = $('.discountForm');
         if (formEle.attr("style") == 'display:block'){
-            formEle.attr("style", "display:none")
+            formEle.attr("style", "display:none");
         }else{
-            formEle.attr("style", "display:block")
+            formEle.attr("style", "display:block");
         }
     }
 

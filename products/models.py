@@ -14,7 +14,6 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
     imageURL = models.URLField(null=True, blank=True)
 
-
     def __str__(self):
         """
         return object as a string
@@ -40,12 +39,12 @@ class Product(models.Model):
 
     def is_discounted(self):
         '''
-        Returns true if the product's price is lower than 
+        Returns true if the product's price is lower than
         the product's compare_at_price
         '''
         if self.compare_at_price != 0:
             return self.price < self.compare_at_price
-        
+
         return False
 
     def savings(self):
@@ -53,7 +52,7 @@ class Product(models.Model):
         Returns savings in %
         '''
         if self.is_discounted():
-            
+
             return str(100 - int(self.price * 100 / self.compare_at_price))
         else:
             return 'no savings'

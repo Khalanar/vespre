@@ -45,13 +45,13 @@
     $('#id_name').on('input', ()=>{
         let title = $('#id_name').val().toUpperCase();
         title = title.replaceAll(" ", "_");
-        $('#id_code').val(title)
+        $('#id_code').val(title);
     });
 
     $('#id_code').on('input', ()=>{
         let title = $('#id_code').val().toUpperCase();
         let code = title.replaceAll(" ", "_");
-        $('#id_code').val(code)
+        $('#id_code').val(code);
     });
 
 </script>

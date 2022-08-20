@@ -5,7 +5,6 @@ from django.contrib import messages
 
 
 def add_review(request, product_id):
-    
     product = get_object_or_404(Product, id=product_id)
 
     if request.POST:

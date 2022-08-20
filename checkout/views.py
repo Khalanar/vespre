@@ -47,7 +47,7 @@ def checkout(request):
     if request.method == 'POST':
         cart = request.session.get('cart', {})
         discount_id = request.session.get('discount_id')
-        
+
         if discount_id:
             discount = get_object_or_404(Discount, pk=discount_id)
 
@@ -96,7 +96,7 @@ def checkout(request):
                                 product_size=s,
                             )
                             order_line_item.save()
-                            
+  
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "Oops somethign went wrong, one of the products\
@@ -116,7 +116,7 @@ def checkout(request):
     else:
         cart = request.session.get('cart', {})
         if not cart:
-            messages.error(request, 
+            messages.error(request,
                            "There's nothing in your cart at the moment")
             return redirect(reverse('products'))
 
@@ -174,7 +174,7 @@ def checkout_success(request, order_number):
 
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        
+
         # Attach the user's profile to the order
         order.user_profile = profile
         order.save()

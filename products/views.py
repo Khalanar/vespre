@@ -12,7 +12,6 @@ def all_products(request):
     """
     View to return all products, sorting and search queries
     """
-
     products = Product.objects.all()
     query = None
     sort = None
@@ -31,7 +30,7 @@ def all_products(request):
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
-            
+
             products = products.order_by(sortkey)
 
         if 'q' in request.GET:
@@ -96,7 +95,7 @@ def add_product(request):
                            Please ensure the form is valid.')
     else:
         form = ProductForm()
-        
+
     template = 'products/add_product.html'
     context = {
         'form': form,
