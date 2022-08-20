@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /discounts/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /discounts/
+Sitemap: https://vespre.herokuapp.com/sitemap.xml

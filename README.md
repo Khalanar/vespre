@@ -265,11 +265,13 @@ Below is a list of features users and admins can perform in the website
 # SEO
 
 ## Selected SEO Keywords
-- Sunset t-shirts 
-- Vespre t-shirts
-- Landmark t-shirts
-- pop culture t-shirts
-- ufo t-shirts
+
+- Meta description and keywords added to the HTML to boost SEO.
+- Media files named after SEO best practices.
+- Semantic HTML used throughout the project to help improve store quality.
+- Site title tag carefully selected to boost specific keywords.
+- A `sitemap.xml` file has been created and added to the root directory using [xml-sitemaps](https://www.xml-sitemaps.com/details-vespre.herokuapp.com-ee88ee479.html).
+- Created `robots.txt` and disallow some folders from being crawled.
 
 # Social Media 
 # Validation

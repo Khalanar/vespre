@@ -1,21 +1,23 @@
-<div id="section-featured" class="background-gradient">
-    <div class="container section-narrow" >
-        <div class="row h-100 px-3">
-            <div class="col-12 col-md-6 col-lg-5 card p-3">
-                <h1 class="d-block d-md-none d-xl-none display-4 logo-font text-black p-3 text-centered">Summer sale!</h1>
-                <h1 class="d-none  d-md-block d-xl-block display-5 logo-font text-black p-3 text-centered">Summer sale!</h1>
-                <p class="p-3">While stocks last, enjoy the savings across all our summer-themed designs. Up to 30% off to celebrate this summer!</p>
-                <p class="p-3">Not enough? Use the code <span class="discount-info">SUMMERSALE</span> within your cart for an extra discount across your whole order!</p>
-                <div class="mt-4 text-center h-100">
-                    <a href="{% url 'products' %}?q=discounted" class="btn btn-primary">View all discounted products</a> 
+<section>
+    <div id="section-featured" class="background-gradient">
+        <div class="container section-narrow" >
+            <div class="row h-100 px-3">
+                <div class="col-12 col-md-6 col-lg-5 card p-3">
+                    <h1 class="d-block d-md-none d-xl-none display-4 logo-font text-black p-3 text-centered">Summer sale!</h1>
+                    <h1 class="d-none  d-md-block d-xl-block display-5 logo-font text-black p-3 text-centered">Summer sale!</h1>
+                    <p class="p-3">While stocks last, enjoy the savings across all our summer-themed designs. Up to 30% off to celebrate this summer!</p>
+                    <p class="p-3">Not enough? Use the code <span class="discount-info">SUMMERSALE</span> within your cart for an extra discount across your whole order!</p>
+                    <div class="mt-4 text-center h-100">
+                        <a href="{% url 'products' %}?q=discounted" class="btn btn-primary">View all discounted products</a> 
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-md-6 col-lg-7 pl-3 pl-md-4">
-                <div class="row py-4 py-md-0">
-                    {% include 'snippets/product-card-flex.html' with product=featured_products.0 %}
-                    {% include 'snippets/product-card-flex.html' with product=featured_products.1 isLast=True%}
+                <div class="col-12 col-md-6 col-lg-7 pl-3 pl-md-4">
+                    <div class="row py-4 py-md-0">
+                        {% include 'snippets/product-card-flex.html' with product=featured_products.0 %}
+                        {% include 'snippets/product-card-flex.html' with product=featured_products.1 isLast=True%}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
