@@ -1,13 +1,8 @@
 # Vespre
 Check out the deployed website [here](http://vespre.herokuapp.com/)
 
-AMIRESPONSIVE IMAGE - TODO
+![](media/readme/responsivetest.png)
 
-&#9989;
-&#10060;
-
-&#10003;
-&#65794;
 
 # Table of Contents
 > - [Introduction](#introduction) &#10003;
@@ -292,6 +287,12 @@ Both accounts exist as part of Vespre's social media strategy previous to this p
 - Vespre store's [Instagram account](https://www.instagram.com/vespre_design/)
 
 # Validation
+
+> Lighthouse report
+
+I am aware of certain practices that are impacting negatively the accessibility of the store. I have ignored contrast ratio warnings from lighthouse as have been using [Contrast Checker](https://webaim.org/resources/contrastchecker/), which is a more in-depth tool that takes into account not just background and foreground colors but also font wieghts, and tests are conclusive.
+
+![](media/readme/lighthouse.png)
 
 > All rendered html pages have been validated through [W3C Markup Validation Service](https://validator.w3.org/)
 

@@ -7,7 +7,7 @@
         {% if request.user.is_authenticated %}
         <form action="{% url 'toggle_from_wishlist' product.id %}" method="POST">
             {% csrf_token %}
-            <button class="top-left wishlist">                
+            <button aria-label="toggle-wishlist" class="top-left wishlist">                
                 {% if product in wishlist.products.all %}
                 <i class="fa-solid fa-heart"></i>
                 {% else %}

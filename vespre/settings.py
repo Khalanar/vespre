@@ -34,7 +34,8 @@ ALLOWED_HOSTS = ['localhost', 'vespre.herokuapp.com',
                  '8000-khalanar-vespre-wbfchs5rflz.ws-eu59.gitpod.io',
                  '8000-khalanar-vespre-wbfchs5rflz.ws-eu60.gitpod.io',
                  '8000-khalanar-vespre-wbfchs5rflz.ws-eu61.gitpod.io',
-                 'https://ui.dev/',
+                 'ui.dev/',
+                 'ui.dev/amiresponsive?url=https://8000-khalanar-vespre-wbfchs5rflz.ws-eu62.gitpod.io/',
                  '8000-khalanar-vespre-wbfchs5rflz.ws-eu62.gitpod.io']
 
 CSRF_TRUSTED_ORIGINS = ['https://8000-khalanar-vespre-wbfchs5rflz.ws-eu59.gitpod.io',
