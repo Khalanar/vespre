@@ -408,7 +408,7 @@ Manual testing was selected for this project.
 |  | Email is sent on successful checkout | &#10003; |
 |  | Order object is saved on successful checkout if the user is registered and authenticated | &#10003; |
 |  | Checkout is successful when a discount is added | &#10003; |
-|  | Checkout is successful when a discount is not added | &#10003; |
+|  | Checkout is successful when a discount is notf added | &#10003; |
 | Order confirmation | Loads | &#10003; |
 |  | Shows correct order details | &#10003; |
 |  | Shows correct order total and subtotals | &#10003; |
