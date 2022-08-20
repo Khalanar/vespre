@@ -6,7 +6,7 @@ from products.models import Product
 
 class Wishlist(models.Model):
     """
-    Class to create wishlists for users 
+    Class to create wishlists for users
     """
     user_profile = models.ForeignKey(UserProfile, on_delete=models.CASCADE,
                                      null=False, blank=False,

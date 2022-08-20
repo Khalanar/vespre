@@ -21,13 +21,13 @@ AMIRESPONSIVE IMAGE - TODO
 > - [Tech stack](#tech-stack) &#10003;
 > - [SEO](#seo) &#10003;
 > - [Social Media](#social-media) &#10003;
-> - [Validation](#validation)
-> - [Testing](#testing)
-> - [Future plans](#future-plans)
+> - [Validation](#validation) &#10003;
+> - [Testing](#testing) &#10003;
+> - [Future plans](#future-plans) &#10003;
 > - [Deployment](#deployment) &#10003;
 > - [Installation](#installation) &#10003;
-> - [Credits](#credits)
-> - [Acknowledgements](#acknowledgements)
+> - [Credits](#credits) &#10003;
+> - [Acknowledgements](#acknowledgements) &#10003;
 
 # Introduction
 Created in 2019, Vespre is a tee-shirt store with designs reminiscent of sunsets. The word Vespre - Sunset in Catalan - serves as vehicle and inspiration for the designer and owner to create designs based on his main intetests. Ranging from world landmarks, inspiring settings and pop culture references, we're sure you will find something for you!
@@ -229,8 +229,16 @@ Quick overview of the design of all the database model for the different apps cr
 
 # Features
 
-Below is a list of features users and admins can perform in the website
-
+- Designed with HTML5, CSS3, Python, Django, JavaScript and Bootstrap.
+- Always present navbar allows users and admins to quickly go from one page to another.
+- Sections are used throughout the site (home and cart for example) so at all times products are being displayed to users.
+- Products can be sorted and filtered.
+- Users can view and create product reviews.
+- Internal messaging system alerts users of certain actions.
+- Profile creation allows users to save orders and keep a wishlist.
+- Admins can create, modify and delete products straight from the site.
+- Admins can create, and delete discounts.
+- Checkout powered by [Stripe](https://stripe.com/ie).
 
 # Tech stack
 
@@ -328,7 +336,7 @@ Both accounts exist as part of Vespre's social media strategy previous to this p
 
 > All Python files were validated through VSCode linter and [Pep8 Online](http://pep8online.com/)
 
-For the sake of brevety and to avoid duplications, main pep8 issues have been listed below
+In the interest of brevity and to avoid duplications, main pep8 issues have been listed below:
 
 |  Python  |  Comments  |  Status  |
 | --- | --- | --- |
@@ -338,10 +346,101 @@ For the sake of brevety and to avoid duplications, main pep8 issues have been li
 |  | Long lines have been split | &#10003; |
 |  | All blank lines have beeb checked so as to not have blank spaces | &#10003; |
 |  | Files end with extra line without blank space | &#10003; |
-|  | Ignored long line errors in webhook_handler.py as there is no way to split this line | &#10003; |
+|  | Ignored long line errors only when there was absolutely no way around it (eg.  webhook_handler.py) | &#10003; |
 
 # Testing
+
+Manual testing was selected for this project.
+
+| Page | Action | Pass / Fail |
+| --- | --- | --- |
+| Global navigation | Loads | &#10003; |
+|  | Links to Users | &#10003; |
+|  | Links to Cart | &#10003; |
+|  | Links to Home | &#10003; |
+|  | Links to Sorted and filtered collections | &#10003; |
+|  | Links About us | &#10003; |
+| Home | Loads | &#10003; |
+|  | Links to collection of filtered products by discounted price | &#10003; |
+|  | Links to About us | &#10003; |
+| Footer | Loads | &#10003; |
+|  | Links to all policy pages | &#10003; |
+|  | Register form completes (expected to just display modal) | &#10003; |
+| Product card | Loads | &#10003; |
+|  | Can add to wishlist | &#10003; |
+|  | Can remove from wishlist | &#10003; |
+|  | Shows price and compare at price if they are different | &#10003; |
+|  | Shows average of reviews if there are any | &#10003; |
+|  | Links to product details page | &#10003; |
+| All products | Loads | &#10003; |
+|  | Product cards keep functionality throughout | &#10003; |
+| Product details | Loads | &#10003; |
+|  | Shows product info | &#10003; |
+|  | Allows to select size | &#10003; |
+|  | Allows to increment / decrement quantity | &#10003; |
+|  | Allows to add to cart | &#10003; |
+|  | Shows general info for tees | &#10003; |
+|  | Shows Size Chart | &#10003; |
+|  | Shows review average if available | &#10003; |
+|  | Shows reviews if available | &#10003; |
+|  | Links to view reviews if available | &#10003; |
+|  | Links to create review | &#10003; |
+| Reviews | Loads | &#10003; |
+|  | Reviews added automatically change a product's average rating | &#10003; |
+|  | Review username is required | &#10003; |
+|  | Review username defaults to anonymous | &#10003; |
+|  | Review body is not required | &#10003; |
+|  | Product title and image are displayed | &#10003; |
+|  | A rating from 0-5 can be selected | &#10003; |
+|  | All fields are saved and processed on form submit | &#10003; |
+| Cart | Loads | &#10003; |
+|  | Quantity can be incremented or decremented via cart | &#10003; |
+|  | Line item can be removed | &#10003; |
+|  | Continue shopping links to home | &#10003; |
+|  | Discounts can be added | &#10003; |
+|  | Discounts object is saved into memory when a discount code matches an existing one | &#10003; |
+|  | Discount applies to order total and the percentage type shows total savings in amount | &#10003; |
+|  | Checkout links to checkout page | &#10003; |
+| Checkout | Loads | &#10003; |
+|  | Verbose errors when a required field is not filled in on form subission | &#10003; |
+|  | Correct order total amount is displayed | &#10003; |
+|  | Correct order total amount is sent to Stripe | &#10003; |
+|  | Email is sent on successful checkout | &#10003; |
+|  | Order object is saved on successful checkout if the user is registered and authenticated | &#10003; |
+|  | Checkout is successful when a discount is added | &#10003; |
+|  | Checkout is successful when a discount is not added | &#10003; |
+| Order confirmation | Loads | &#10003; |
+|  | Shows correct order details | &#10003; |
+|  | Shows correct order total and subtotals | &#10003; |
+|  | Shows discount info if one is used | &#10003; |
+| Wishlist | Loads | &#10003; |
+|  | Shows product cards | &#10003; |
+|  | Can remove products | &#10003; |
+| Account management | Loads | &#10003; |
+|  | Shows past orders | &#10003; |
+|  | Past orders link to order confirmations | &#10003; |
+|  | Form form returns verbose errors when form is not completed correctly | &#10003; |
+|  | Shows wishlisted products as cards | &#10003; |
+| Store management | Loads | &#10003; |
+|  | Product can be added | &#10003; |
+|  | Product form returns verbose erros when required fields are not filled in | &#10003; |
+|  | Product form returns verbose errors when form is not completed correctly | &#10003; |
+|  | Product can be modified | &#10003; |
+|  | Product can be deleted with a security modal | &#10003; |
+|  | Discounts can be viewed | &#10003; |
+|  | Discounts can be created | &#10003; |
+|  | Discounts form returns verbose erros when required fields are not filled in | &#10003; |
+|  | Discounts form returns verbose errors when form is not completed correctly | &#10003; |
+|  | Discounts can be deleted | &#10003; |
+
 # Future plans
+
+Future plans for this website include:
+- Register to newsletter works with actual email addresses and sends confirmation emails.
+- Installation of Facebook pixel for tracking.
+- Installation of Google Analytics for tracking.
+- Integration of Printful API for easier order management.
+- Creating a system to add different types of products with a separate set of templates.
 
 # Deployment
 
@@ -385,7 +484,7 @@ To clone this project into your IDE you will need:
 - A **GitHub** account. Create one [here](https://github.com/join).
 - **Google Chrome** browser.
 
-Follow this steps:
+Follow these steps:
 
 1. Install the [Gitpod Browser Extentions for Chrome](https://chrome.google.com/webstore/detail/gitpod-dev-environments-i/dodmmooeoklaejobgleioelladacbeki).
 2. Restart the browser once completed.
@@ -393,13 +492,13 @@ Follow this steps:
 4. Navigate to the [Project GitHub repository](https://github.com/Khalanar/vespre).
 5. Click the green *Gitpod* button in the top right corner of the repo.
 6. On the terminal, install Django:
-```
-pip3 install django
-```
+    ```
+    pip3 install django
+    ```
 7. Install project dependencies by running the command:
-```
-pip3 install -r requirements.txt
-```
+    ```
+    pip3 install -r requirements.txt
+    ```
 8. Add the below environment variables to run the project. Note, you can create these under a new `env.py` file at the project level. Git has been set up to ignore this file to avoid potential secrets being exposed into Github:
    ```
    DEVELOPMENT=True
@@ -408,14 +507,14 @@ pip3 install -r requirements.txt
    STRIPE_WH_SECRET=<your_personal_webhook_key>
    ```
 9. Create project models and database by running the following commands:
-```
-python3 manage.py makemigrations
-python3 manage.py migrate
-```
+    ```
+    python3 manage.py makemigrations
+    python3 manage.py migrate
+    ```
 10. Run server locally with the following command:
-```
-python3 manage.py runserver
-```
+    ```
+    python3 manage.py runserver
+    ```
 
 ## Run locally with IDE of choice
 
@@ -423,29 +522,47 @@ python3 manage.py runserver
 2. Click *Code* and copy the url shown under *HTTPS*
 3. In the directory where you want to download this project, open the terminal and type *git clone* followed by the copied url from step 2, then paste the URL of the project.
 4. On the terminal, install Django with the follow command:
-```
-pip3 install django
-```
+    ```
+    pip3 install django
+    ```
 5. Install project dependencies by running the command:
-```
-pip3 install -r requirements.txt
-```
+    ```
+    pip3 install -r requirements.txt
+    ```
 6. Add the below environment variables to run the project. Note, you can create these under a new `env.py` file at the project level. Git has been set up to ignore this file to avoid potential secrets being exposed into Github:
-   ```
-   DEVELOPMENT=True
-   STRIPE_PUBLIC_KEY=<your_personal_public_key>
-   STRIPE_SECRET_KEY=<your_personal_secret_key>
-   STRIPE_WH_SECRET=<your_personal_webhook_key>
-   ```
+    ```
+    DEVELOPMENT=True
+    STRIPE_PUBLIC_KEY=<your_personal_public_key>
+    STRIPE_SECRET_KEY=<your_personal_secret_key>
+    STRIPE_WH_SECRET=<your_personal_webhook_key>
+    ```
 7. Create project models and database by running the following commands:
-```
-python3 manage.py makemigrations
-python3 manage.py migrate
-```
+    ```
+    python3 manage.py makemigrations
+    python3 manage.py migrate
+    ```
 8. Run server locally with the following command:
-```
-python3 manage.py runserver
-```
+    ```
+    python3 manage.py runserver
+    ```
 
 # Credits
-# Acknowledgements
+
+## Media
+
+- All product images were created by me
+- All designs including the logo were created by me
+- All icons as rendered were provided [Font Awesome](https://fontawesome.com/)'s free plan
+
+## Content
+
+ - All text was created by me
+ - Policies have been created by Printful and Shopify's free policy generator, as found on my real store that this project is based upon, [Vespre](https://vespre-store.com/)
+
+
+# Acknowledgments
+I would like to thank:
+
+- **Anto**, my Mentor for guidance and counsel.
+- **CI Tutors** for helping and guiding through deployment issues especially during P4.
+- **Slack Community** a great resource of information and bugtracking.
