@@ -25,7 +25,7 @@
                         {% if product.is_discounted %}
                         <div class="top-right">{% include 'snippets/sale-badge.html' with savings=product.savings %}</div>
                         {% endif %}
-                        <img src="{{ MEDIA_URL }}{{ product.image }}">{{ MEDIA.URL }}
+                        <img src="{{ MEDIA_URL }}{{ product.image }}" alt="Image for {{ product.name }}">{{ MEDIA.URL }}
                     </div>
                 </div>
                 <div class="col-12 col-md-{{medium_cols}} col-lg-12 mt-1 mt-lg-4">

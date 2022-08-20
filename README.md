@@ -273,7 +273,16 @@ Below is a list of features users and admins can perform in the website
 - A `sitemap.xml` file has been created and added to the root directory using [xml-sitemaps](https://www.xml-sitemaps.com/details-vespre.herokuapp.com-ee88ee479.html).
 - Created `robots.txt` and disallow some folders from being crawled.
 
-# Social Media 
+# Social Media
+
+Both accounts exist as part of Vespre's social media strategy previous to this project. A new social strategy is being implemented after learning about keyword searching. Facebook will be used mainly as a point of contact and selling platform. Instagram will be used as a promo and engagement tool. At this stage there are no plans for using TikTok. 
+
+## Facebook account
+- Vespre store's [Facebook account](https://www.facebook.com/vespredesign/)
+
+## Instagram account
+- Vespre store's [Instagram account](https://www.instagram.com/vespre_design/)
+
 # Validation
 # Testing
 # Future plans
