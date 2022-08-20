@@ -259,6 +259,10 @@ a.danger {
     border: none;
 }
 
+.table-full td{
+    padding: 10px;
+}
+
 .table-left {
     text-align: left;
 }

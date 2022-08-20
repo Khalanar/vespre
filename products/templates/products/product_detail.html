@@ -16,7 +16,7 @@
         <div class="container-fluid container col-12">
             <div class="row pt-5 mb-5">
                 <div class="col-12 col-md-6 col-lg-7">
-                    <img class="main-product" src="{{ MEDIA_URL }}{{ product.image }}">
+                    <img class="main-product" src="{{ MEDIA_URL }}{{ product.image }}" alt="Image for {{ product.name }}">
                 </div>
                 <div class="col-12 col-md-6 col-lg-5">
                     <h1 class="display-4 logo-font text-black px-3 w-100">{{ product }}</h1>
@@ -50,7 +50,7 @@
                                                 </span>
                                             </button>
                                         </div>
-                                        <input class="form-control qty_input quantity-input" type=""
+                                        <input class="form-control qty_input quantity-input" type="number"
                                             name="quantity" value="1" min="1" max="99"
                                             data-item_id="{{ product.id }}"
                                             id="id_qty_{{ product.id }}">

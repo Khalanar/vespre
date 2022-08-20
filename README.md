@@ -296,12 +296,19 @@ All rendered html pages have been validated through [W3C Markup Validation Servi
 | About us |  | &#10003; |
 | Discounts |  | &#10003; |
 | Create discount |  | &#10003; |
-| Create product |  | &#10003; |
+| Create product | Ignored warning about crispyform formatting | &#10003; |
 | User profile |  | &#10003; |
+| Product detail | Changed class button from anchor element | &#10003; |
+|  | Fixed bad value for empty style attributes | |
+|  | Changed review parent from span to div | |
+|  | Changed cellpadding deprecated attribute to CSS style for sizing table | |
 | About us |  | &#10003; |
-| About us |  | &#10003; |
-|  |  |  |
-|  |  |  |
+| Cart |  | &#10003; |
+| Checkout |  | &#10003; |
+| Order confirmation | Ignore empty header warning | &#10003; |
+
+|  CSS  |  Comments  |  Status  |
+| --- | --- | --- |
 
 # Testing
 # Future plans

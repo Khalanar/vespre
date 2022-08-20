@@ -1,10 +1,6 @@
 <div class="row">
     <div class="col-10 offset-1 col-md-2">
-       
-        <span>{% include 'snippets/rating_boxes.html' with rating=review.rating %}</span>
-
-        
-
+        <div>{% include 'snippets/rating_boxes.html' with rating=review.rating %}</div>
     </div>
 
     <div class="col-10 offset-1 col-md-5 offset-md-0">
@@ -13,9 +9,7 @@
 
     <div class="col-10 offset-1 col-md-3 offset-md-0">
         <span class="review-user">by {{ review.name }} on {{ review.date_created | date:"M jS 'y"  }}</span>
-    
     </div>
-     
 
 </div>
 
