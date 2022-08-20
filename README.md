@@ -19,8 +19,8 @@ AMIRESPONSIVE IMAGE - TODO
 > - [Database Design](#database-design) &#10003;
 > - [Features](#features)
 > - [Tech stack](#tech-stack) &#10003;
-> - [SEO](#seo)
-> - [Social Media](#social-media)
+> - [SEO](#seo) &#10003;
+> - [Social Media](#social-media) &#10003;
 > - [Validation](#validation)
 > - [Testing](#testing)
 > - [Future plans](#future-plans)
@@ -284,6 +284,25 @@ Both accounts exist as part of Vespre's social media strategy previous to this p
 - Vespre store's [Instagram account](https://www.instagram.com/vespre_design/)
 
 # Validation
+
+All rendered html pages have been validated through [W3C Markup Validation Service](https://validator.w3.org/)
+
+|  HTML  |  Comments  |  Status  |
+| --- | --- | --- |
+| Global | Ignored Duplicate Id messages as once show on mobile and the others on medium and up as per CI initual design for Boutique Ado |  |
+|  | Ignore js does not require type attribute I like having it there for consistency |  |
+| Home |   |  &#10003; |
+| All products |  | &#10003; |
+| About us |  | &#10003; |
+| Discounts |  | &#10003; |
+| Create discount |  | &#10003; |
+| Create product |  | &#10003; |
+| User profile |  | &#10003; |
+| About us |  | &#10003; |
+| About us |  | &#10003; |
+|  |  |  |
+|  |  |  |
+
 # Testing
 # Future plans
 
