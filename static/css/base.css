@@ -466,6 +466,35 @@ img.main-product {
     margin: auto;
 }
 
+.qi-nb {
+    color: currentColor;
+    text-align: center;
+    background-color: transparent;
+    border: 0;
+    padding: 0 0.5rem;
+    width: 100%;
+    flex-grow: 1;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+.qi-nb:-webkit-autofill,
+.qi-nb:-webkit-autofill:hover,
+.qi-nb:-webkit-autofill:active {
+  box-shadow: 0 0 0 10rem rgb(var(--color-background)) inset !important;
+  -webkit-box-shadow: 0 0 0 10rem rgb(var(--color-background)) inset !important;
+}
+
+.qi-nb::-webkit-outer-spin-button,
+.qi-nb::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.quantity__input[type='number'] {
+  -moz-appearance: textfield;
+}
+
 .input-group {
     box-sizing: initial;
 }
