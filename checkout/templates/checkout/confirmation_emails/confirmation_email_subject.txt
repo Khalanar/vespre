@@ -1,1 +1,1 @@
-Boutique Ado Confirmation for Order Number {{ order.order_number }}
+Thanks for your purchase at Vespre - {{ order.order_number }}

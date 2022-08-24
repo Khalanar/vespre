@@ -5,24 +5,24 @@ Check out the deployed website [here](http://vespre.herokuapp.com/)
 
 
 # Table of Contents
-> - [Introduction](#introduction) &#10003;
-> - [UX](#ux) &#10003;
-> - [Epics](#epics) &#10003;
-> - [User Stories](#user-stories) &#10003;
-> - [Design](#design) &#10003;
-> - [Wireframes](#wireframes) &#10003;
-> - [Database Design](#database-design) &#10003;
+> - [Introduction](#introduction)
+> - [UX](#ux)
+> - [Epics](#epics)
+> - [User Stories](#user-stories)
+> - [Design](#design)
+> - [Wireframes](#wireframes)
+> - [Database Design](#database-design)
 > - [Features](#features)
-> - [Tech stack](#tech-stack) &#10003;
-> - [SEO](#seo) &#10003;
-> - [Social Media](#social-media) &#10003;
-> - [Validation](#validation) &#10003;
-> - [Testing](#testing) &#10003;
-> - [Future plans](#future-plans) &#10003;
-> - [Deployment](#deployment) &#10003;
-> - [Installation](#installation) &#10003;
-> - [Credits](#credits) &#10003;
-> - [Acknowledgements](#acknowledgements) &#10003;
+> - [Tech stack](#tech-stack)
+> - [SEO](#seo)
+> - [Social Media](#social-media)
+> - [Validation](#validation)
+> - [Testing](#testing)
+> - [Future plans](#future-plans)
+> - [Deployment](#deployment)
+> - [Installation](#installation)
+> - [Credits](#credits)
+> - [Acknowledgements](#acknowledgements)
 
 # Introduction
 Created in 2019, Vespre is a tee-shirt store with designs reminiscent of sunsets. The word Vespre - Sunset in Catalan - serves as vehicle and inspiration for the designer and owner to create designs based on his main intetests. Ranging from world landmarks, inspiring settings and pop culture references, we're sure you will find something for you!
@@ -290,7 +290,10 @@ Both accounts exist as part of Vespre's social media strategy previous to this p
 
 > Lighthouse report
 
-I am aware of certain practices that are impacting negatively the accessibility of the store. I have ignored contrast ratio warnings from lighthouse as have been using [Contrast Checker](https://webaim.org/resources/contrastchecker/), which is a more in-depth tool that takes into account not just background and foreground colors but also font wieghts, and tests are conclusive.
+I am aware of certain practices that are impacting negatively the accessibility of the store. 
+
+- I have ignored contrast ratio warnings from lighthouse as have been using [Contrast Checker](https://webaim.org/resources/contrastchecker/), which is a more in-depth tool that takes into account not just background and foreground colors but also font wieghts, and tests are conclusive.
+- Contrast ratio for some sections have been improved with shadows, which Lighthouse does not seem to pick up, so the actual Accessibility is higher than what the LH report states.
 
 ![](media/readme/lighthouse.png)
 
